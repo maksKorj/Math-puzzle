@@ -47,7 +47,10 @@ public class EquationChecker : MonoBehaviour
 
         for (int x = comparisonSignGridPos.x - 1; x >= 0; x--)
         {
-            if(_gridBuilder.GridElement(x, comparisonSignGridPos.y).IsTaken &&
+            if (_gridBuilder.GridElement(x, comparisonSignGridPos.y) == null)
+                continue;
+
+            if (_gridBuilder.GridElement(x, comparisonSignGridPos.y).IsTaken &&
                 _gridBuilder.GridElement(x, comparisonSignGridPos.y).IsTaken—omparisonSigns == false)
             {
                 _firstPart.Add(_gridBuilder.GridElement(x, comparisonSignGridPos.y));
@@ -59,8 +62,11 @@ public class EquationChecker : MonoBehaviour
         }
         _firstPart.Reverse();
 
-        for (int x = comparisonSignGridPos.x + 1; x < _gridBuilder.SizeX - 1; x++)
+        for (int x = comparisonSignGridPos.x + 1; x < _gridBuilder.SizeX; x++)
         {
+            if (_gridBuilder.GridElement(x, comparisonSignGridPos.y) == null)
+                continue;
+
             if (_gridBuilder.GridElement(x, comparisonSignGridPos.y).IsTaken &&
                 _gridBuilder.GridElement(x, comparisonSignGridPos.y).IsTaken—omparisonSigns == false)
             {
@@ -93,8 +99,11 @@ public class EquationChecker : MonoBehaviour
         _firstPart.Clear();
         _secondPart.Clear();
 
-        for (int y = comparisonSignGridPos.y + 1; y < _gridBuilder.SizeY - 1; y++)
+        for (int y = comparisonSignGridPos.y + 1; y < _gridBuilder.SizeY; y++)
         {
+            if (_gridBuilder.GridElement(comparisonSignGridPos.x, y) == null)
+                continue;
+
             if (_gridBuilder.GridElement(comparisonSignGridPos.x, y).IsTaken &&
                 _gridBuilder.GridElement(comparisonSignGridPos.x, y).IsTaken—omparisonSigns == false)
             {
@@ -109,6 +118,9 @@ public class EquationChecker : MonoBehaviour
 
         for (int y = comparisonSignGridPos.y - 1; y >= 0; y--)
         {
+            if (_gridBuilder.GridElement(comparisonSignGridPos.x, y) == null)
+                continue;
+
             if (_gridBuilder.GridElement(comparisonSignGridPos.x, y).IsTaken &&
                 _gridBuilder.GridElement(comparisonSignGridPos.x, y).IsTaken—omparisonSigns == false)
             {

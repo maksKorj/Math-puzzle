@@ -13,14 +13,10 @@ MonoBehaviour:
   m_Name: Start Position Level 1
   m_EditorClassIdentifier: 
   _gridElementContents:
-  - _position: {x: 1, y: 2}
-    _gridContent: {fileID: 11400000, guid: 6c714b81bf17df147ba478e7cb061069, type: 2}
   - _position: {x: 2, y: 2}
-    _gridContent: {fileID: 11400000, guid: 4b2742191b532f84f8b38d6a49392606, type: 2}
+    _gridContent: {fileID: 11400000, guid: a8f4bd18fb3bc6c4388efee430a23639, type: 2}
   - _position: {x: 5, y: 2}
     _gridContent: {fileID: 11400000, guid: 6c714b81bf17df147ba478e7cb061069, type: 2}
-  - _position: {x: 4, y: 2}
-    _gridContent: {fileID: 11400000, guid: 4b2742191b532f84f8b38d6a49392606, type: 2}
   - _position: {x: 3, y: 1}
     _gridContent: {fileID: 11400000, guid: 8a00270208bf79e42a9bc58af0e15c3e, type: 2}
   - _position: {x: 4, y: 1}

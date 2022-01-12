@@ -15,8 +15,8 @@ MonoBehaviour:
   _levelSymbols:
   - _isRandomOutput: 0
     _gridContents:
-    - {fileID: 11400000, guid: 6c714b81bf17df147ba478e7cb061069, type: 2}
-    - {fileID: 11400000, guid: 8a00270208bf79e42a9bc58af0e15c3e, type: 2}
+    - {fileID: 11400000, guid: 0fea03f85d42d6a4b9fbcdde0babe4a6, type: 2}
+    - {fileID: 11400000, guid: 7c489e3109b518a42abd04d51ded58b7, type: 2}
     - {fileID: 11400000, guid: 4b2742191b532f84f8b38d6a49392606, type: 2}
     - {fileID: 11400000, guid: 6c714b81bf17df147ba478e7cb061069, type: 2}
     - {fileID: 11400000, guid: 8a00270208bf79e42a9bc58af0e15c3e, type: 2}

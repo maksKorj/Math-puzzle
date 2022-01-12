@@ -992,6 +992,7 @@ GameObject:
   - component: {fileID: 616580026}
   - component: {fileID: 616580028}
   - component: {fileID: 616580029}
+  - component: {fileID: 616580030}
   m_Layer: 5
   m_Name: SymbloGiver
   m_TagString: Untagged
@@ -1073,6 +1074,7 @@ MonoBehaviour:
   _symbolConfig: {fileID: 11400000, guid: c3212bc09207c5044b70ef4ae48e7f1c, type: 2}
   _symbolGiverVisual: {fileID: 1686235801}
   _equationVisualizer: {fileID: 1340795001}
+  _symbols: {fileID: 11400000, guid: 504e88161bbbdb14a811a9882f5dedf0, type: 2}
 --- !u!114 &616580029
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1087,6 +1089,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Padding: {x: 0, y: 0, z: 0, w: 0}
   m_Softness: {x: 0, y: 0}
+--- !u!114 &616580030
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 616580024}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6a4e3d7c729c5d24794da9e32d63300d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _gridBuilder: {fileID: 1874345066}
+  _symbols: {fileID: 11400000, guid: 504e88161bbbdb14a811a9882f5dedf0, type: 2}
 --- !u!1 &816164585
 GameObject:
   m_ObjectHideFlags: 0
