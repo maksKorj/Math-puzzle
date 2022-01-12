@@ -9,15 +9,19 @@ namespace LevelBuilder
         [SerializeField] private GameObject _topBorder; 
         [SerializeField] private GameObject _bottomBorder;
 
-        public void MoveChatacter()
-        {
-            //SetPosition
-        }
+        public UnitGrid UnitGrid { get; set; }
 
-        #region ShowBorders
+        public void MoveUnit() => UnitGrid.MoveUnit(GridPosition);
+
+        #region BorderAndRotation
         public void ShowRightBorder() => _rightBorder.SetActive(true);
         public void ShowTopBorder() => _topBorder.SetActive(true);
         public void ShowDownBorder() => _bottomBorder.SetActive(true);
+        public void RotateContent(Quaternion rotation)
+        {
+            _contentImage.RectTransform.rotation = Quaternion.Euler(0, 0, rotation.z);
+            _backgroundImage.RectTransform.rotation = Quaternion.Euler(0, 0, rotation.z);
+        }
         #endregion
     }
 }

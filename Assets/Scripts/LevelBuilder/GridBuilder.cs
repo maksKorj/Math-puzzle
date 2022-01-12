@@ -12,13 +12,21 @@ namespace LevelBuilder
         [Header("Grid Elements")]
         [SerializeField] private GridElement _gridElement;
         [SerializeField] private GridButton _gridButton;
-        [SerializeField] private MoveUnit _moveUnit;
+        [SerializeField] private UnitMover _unitMover;
 
         private RectTransform _rectTransform;
         private GridElement[,] _gridElements;
         private float _unitDiameter;
         private Vector2Int _gridSize;
-        private int _level = 1;
+        private int _level;
+        private UnitGrid _unitGrid;
+
+        public GridElement GridElement(int x, int y) => _gridElements[x, y];
+        public GridElement GridElement(Vector2Int gridPosition) => _gridElements[gridPosition.x, gridPosition.y];
+        public Vector2 GridElementWorldPosition(Vector2Int gridPosition) 
+            => _gridElements[gridPosition.x, gridPosition.y].WorldPosition;
+        public int SizeX => _gridElements.GetLength(0);
+        public int SizeY => _gridElements.GetLength(1);
 
         private void Awake() => CreateGrid();
 
@@ -33,8 +41,12 @@ namespace LevelBuilder
         #region CreatingGridElements
         private void CreateGrid()
         {
+            _canvas.gameObject.GetComponent<TabletScaler>().CheckResolution();
+
+            _level = PlayerSaver.LoadPlayerLevel();
             _gridSize = _levelConfig.GetLevelConfig(_level).Size;
             _rectTransform = GetComponent<RectTransform>();
+            _unitGrid = GetComponent<UnitGrid>();
             _gridElements = new GridElement[_gridSize.x, _gridSize.y];
 
             var gridButtonChecker = new GridButtonChecker(_gridSize);
@@ -61,6 +73,8 @@ namespace LevelBuilder
         {
             var gridButton = Instantiate(_gridButton, Vector3.zero, rotation);
             gridButton.SetStartValue(transform, x, y);
+            gridButton.RotateContent(rotation);
+            gridButton.UnitGrid = _unitGrid;
             gridButtonChecker.CheckGridButtonBorder(x, y, gridButton);
 
             _gridElements[x, y] = gridButton;
@@ -78,7 +92,7 @@ namespace LevelBuilder
         #region GridElementSetUp
         private void SetUnitDiameter()
         {
-            var gridWorldSize = _rectTransform.rect.size * 0.97f;
+            var gridWorldSize = _rectTransform.rect.size * 0.95f;
 
             if(_canvas.gameObject.GetComponent<TabletScaler>().IsTablet)
             {
@@ -108,7 +122,7 @@ namespace LevelBuilder
                 }
             }
 
-            _moveUnit.SetStartSize(_unitDiameter);
+            _unitMover.SetStartSize(_unitDiameter);
         }
 
         private void SetStartGridValue()
