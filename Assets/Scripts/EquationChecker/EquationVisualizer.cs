@@ -46,7 +46,7 @@ public class EquationVisualizer : MonoBehaviour
         _gridAmountChecker.CountAmount();
         if(_gridAmountChecker.IsEmpty)
         {
-            _gridAddition.AddElements();
+            _gridAddition.AddElementsToGrid();
             yield return _showDelay;
             OnEndChecking?.Invoke();
         }

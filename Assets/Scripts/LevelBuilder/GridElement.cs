@@ -20,7 +20,7 @@ namespace LevelBuilder
         public GridContent GridContent => _gridContent;
         public bool IsTaken => _gridContent != null;
         public bool IsTakenMathSign => IsTaken && _gridContent is MathSign;
-        public bool IsTakenÑomparisonSigns => IsTaken && _gridContent is ComparisonSign;
+        public bool IsTakenComparisonSigns => IsTaken && _gridContent is ComparisonSign;
         public bool IsTakenNumber => IsTaken && _gridContent is Number;
         public float SelectingTime => _selectedTime * 2;
         public float HidingTime => _selectedTime + _particleSystem.main.duration;

@@ -33,7 +33,7 @@ public class EquationChecker : MonoBehaviour
     {
         for(int x = 0; x < _gridBuilder.SizeX; x++)
         {
-            if(_gridBuilder.GridElement(x, y) != null && _gridBuilder.GridElement(x, y).IsTakenÑomparisonSigns)
+            if(_gridBuilder.GridElement(x, y) != null && _gridBuilder.GridElement(x, y).IsTakenComparisonSigns)
             {
                 CheckHorizontal(_gridBuilder.GridElement(x, y), new Vector2Int(x, y));
             }  
@@ -50,15 +50,8 @@ public class EquationChecker : MonoBehaviour
             if (_gridBuilder.GridElement(x, comparisonSignGridPos.y) == null)
                 continue;
 
-            if (_gridBuilder.GridElement(x, comparisonSignGridPos.y).IsTaken &&
-                _gridBuilder.GridElement(x, comparisonSignGridPos.y).IsTakenÑomparisonSigns == false)
-            {
-                _firstPart.Add(_gridBuilder.GridElement(x, comparisonSignGridPos.y));
-            }
-            else
-            {
+            if (CanAddElement(x, comparisonSignGridPos.y, _firstPart) == false)
                 break;
-            }
         }
         _firstPart.Reverse();
 
@@ -67,15 +60,8 @@ public class EquationChecker : MonoBehaviour
             if (_gridBuilder.GridElement(x, comparisonSignGridPos.y) == null)
                 continue;
 
-            if (_gridBuilder.GridElement(x, comparisonSignGridPos.y).IsTaken &&
-                _gridBuilder.GridElement(x, comparisonSignGridPos.y).IsTakenÑomparisonSigns == false)
-            {
-                _secondPart.Add(_gridBuilder.GridElement(x, comparisonSignGridPos.y));
-            }
-            else
-            {
+            if (CanAddElement(x, comparisonSignGridPos.y, _secondPart) == false)
                 break;
-            }
         }
 
         CheckParts(comparison);
@@ -87,7 +73,7 @@ public class EquationChecker : MonoBehaviour
     {
         for (int y = 0; y < _gridBuilder.SizeY; y++)
         {
-            if (_gridBuilder.GridElement(x, y) != null && _gridBuilder.GridElement(x, y).IsTakenÑomparisonSigns)
+            if (_gridBuilder.GridElement(x, y) != null && _gridBuilder.GridElement(x, y).IsTakenComparisonSigns)
             {
                 CheckVertical(_gridBuilder.GridElement(x, y), new Vector2Int(x, y));
             }
@@ -104,15 +90,8 @@ public class EquationChecker : MonoBehaviour
             if (_gridBuilder.GridElement(comparisonSignGridPos.x, y) == null)
                 continue;
 
-            if (_gridBuilder.GridElement(comparisonSignGridPos.x, y).IsTaken &&
-                _gridBuilder.GridElement(comparisonSignGridPos.x, y).IsTakenÑomparisonSigns == false)
-            {
-                _firstPart.Add(_gridBuilder.GridElement(comparisonSignGridPos.x, y));
-            }
-            else
-            {
+            if (CanAddElement(comparisonSignGridPos.x, y, _firstPart) == false)
                 break;
-            }
         }
         _firstPart.Reverse();
 
@@ -121,20 +100,27 @@ public class EquationChecker : MonoBehaviour
             if (_gridBuilder.GridElement(comparisonSignGridPos.x, y) == null)
                 continue;
 
-            if (_gridBuilder.GridElement(comparisonSignGridPos.x, y).IsTaken &&
-                _gridBuilder.GridElement(comparisonSignGridPos.x, y).IsTakenÑomparisonSigns == false)
-            {
-                _secondPart.Add(_gridBuilder.GridElement(comparisonSignGridPos.x, y));
-            }
-            else
-            {
+            if (CanAddElement(comparisonSignGridPos.x, y, _secondPart) == false)
                 break;
-            }
         }
 
         CheckParts(comparison);
     }
     #endregion
+
+    private bool CanAddElement(int x, int y, List<GridElement> gridElements)
+    {
+        if (_gridBuilder.GridElement(x, y).IsTaken &&
+                _gridBuilder.GridElement(x, y).IsTakenComparisonSigns == false)
+        {
+            gridElements.Add(_gridBuilder.GridElement(x, y));
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
 
     private void CheckParts(GridElement comparison)
     {

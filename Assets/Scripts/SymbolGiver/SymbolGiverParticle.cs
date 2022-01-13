@@ -48,7 +48,15 @@ public class SymbolGiverParticle : MonoBehaviour
 
         _rectTransform.DOAnchorPos(endPosition, GetDuration(_rectTransform.anchoredPosition, endPosition))
             .SetEase(Ease.Linear)
-            .OnComplete(() => IsMovingToPosition = false);
+            .OnComplete(StopParticle);
+    }
+
+    private void StopParticle()
+    {
+        IsMovingToPosition = false;
+
+        if (_particleSystem.isPlaying)
+            _particleSystem.Stop();
     }
 
     private float GetDuration(Vector2 startPosition, Vector2 endPosition)

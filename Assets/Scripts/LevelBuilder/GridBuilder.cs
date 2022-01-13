@@ -5,9 +5,8 @@ namespace LevelBuilder
     public class GridBuilder : MonoBehaviour
     {
         [SerializeField] private RectTransform _canvas;
-        [Header("Configs")]
-        [SerializeField] private StartPositionConfig _startPositionConfig;
-        [SerializeField] private LevelConfig _levelConfig;
+        [Header("Config")]
+        [SerializeField] private LevelPropertyHandler _levelPropertyHandler;
 
         [Header("Grid Elements")]
         [SerializeField] private GridElement _gridElement;
@@ -18,7 +17,6 @@ namespace LevelBuilder
         private GridElement[,] _gridElements;
         private float _unitDiameter;
         private Vector2Int _gridSize;
-        private int _level;
         private UnitGrid _unitGrid;
 
         public GridElement GridElement(int x, int y) => _gridElements[x, y];
@@ -43,8 +41,7 @@ namespace LevelBuilder
         {
             _canvas.gameObject.GetComponent<TabletScaler>().CheckResolution();
 
-            _level = PlayerSaver.LoadPlayerLevel();
-            _gridSize = _levelConfig.GetLevelConfig(_level).Size;
+            _gridSize = _levelPropertyHandler.Size();
             _rectTransform = GetComponent<RectTransform>();
             _unitGrid = GetComponent<UnitGrid>();
             _gridElements = new GridElement[_gridSize.x, _gridSize.y];
@@ -127,11 +124,16 @@ namespace LevelBuilder
 
         private void SetStartGridValue()
         {
-            foreach (var gridContent in _startPositionConfig.GetStartPositions(_level).TakenGridElements)
+            if(_levelPropertyHandler.IsContainedLevel())
             {
-                var gridElement = _gridElements[gridContent.Position.x, gridContent.Position.y];
-                gridElement.SetContent(gridContent.Content);
+                foreach (var gridContent in _levelPropertyHandler.StartPositionConfig().TakenGridElements)
+                {
+                    var gridElement = _gridElements[gridContent.Position.x, gridContent.Position.y];
+                    gridElement.SetContent(gridContent.Content);
+                }
             }
+            else
+                GetComponent<GridAddition>().AddElementsToGrid(true);
         }
 
         private void ResetGridElementTranform()

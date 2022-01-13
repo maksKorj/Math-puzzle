@@ -1071,7 +1071,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9336e16dcce62414ca28f2d1181e5299, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _symbolConfig: {fileID: 11400000, guid: c3212bc09207c5044b70ef4ae48e7f1c, type: 2}
+  _levelPropertyHandler: {fileID: 1651245526}
   _symbolGiverVisual: {fileID: 1686235801}
   _equationVisualizer: {fileID: 1340795001}
   _symbols: {fileID: 11400000, guid: 504e88161bbbdb14a811a9882f5dedf0, type: 2}
@@ -1102,7 +1102,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _gridBuilder: {fileID: 1874345066}
-  _symbols: {fileID: 11400000, guid: 504e88161bbbdb14a811a9882f5dedf0, type: 2}
+  _equationCreator: {fileID: 1340795002}
 --- !u!1 &816164585
 GameObject:
   m_ObjectHideFlags: 0
@@ -1269,7 +1269,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _amountDisplay: {fileID: 408538394}
-  _levelConfig: {fileID: 11400000, guid: 82878c97284a88646a7e7b687040494a, type: 2}
+  _levelPropertyHandler: {fileID: 1651245526}
 --- !u!1 &1114789940
 GameObject:
   m_ObjectHideFlags: 0
@@ -1626,6 +1626,7 @@ GameObject:
   - component: {fileID: 1340794999}
   - component: {fileID: 1340795000}
   - component: {fileID: 1340795001}
+  - component: {fileID: 1340795002}
   m_Layer: 0
   m_Name: EquationChecker
   m_TagString: Untagged
@@ -1675,6 +1676,20 @@ MonoBehaviour:
   _gridElement: {fileID: 3910632566187712009, guid: c40a31ea7534d4d40bb45d48e4e7284f, type: 3}
   _gridAmountChecker: {fileID: 1874345068}
   _gridAddition: {fileID: 1874345069}
+--- !u!114 &1340795002
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1340794998}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 828f84145b7deed49b1e29f1370bdd0f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _symbols: {fileID: 11400000, guid: 504e88161bbbdb14a811a9882f5dedf0, type: 2}
+  _levelPropertyHandler: {fileID: 1651245526}
 --- !u!1 &1629484223
 GameObject:
   m_ObjectHideFlags: 0
@@ -1754,6 +1769,51 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1629484223}
   m_CullTransparentMesh: 1
+--- !u!1 &1651245524
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1651245525}
+  - component: {fileID: 1651245526}
+  m_Layer: 0
+  m_Name: LevelPropertyHandler
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1651245525
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1651245524}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1651245526
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1651245524}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5915d46a01980e4449afa96c1ca4eb0c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _levelConfig: {fileID: 11400000, guid: 82878c97284a88646a7e7b687040494a, type: 2}
+  _victoryConditions: []
 --- !u!1 &1686235797
 GameObject:
   m_ObjectHideFlags: 0
@@ -2003,8 +2063,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _canvas: {fileID: 2114381639}
-  _startPositionConfig: {fileID: 11400000, guid: 2ba0d4268e2800a4bba3b5726098bef2, type: 2}
-  _levelConfig: {fileID: 11400000, guid: 82878c97284a88646a7e7b687040494a, type: 2}
+  _levelPropertyHandler: {fileID: 1651245526}
   _gridElement: {fileID: 3910632566187712009, guid: c40a31ea7534d4d40bb45d48e4e7284f, type: 3}
   _gridButton: {fileID: 716724792186199790, guid: 1fd218f0e45667646849a35ea69ca9f1, type: 3}
   _unitMover: {fileID: 3910632564523649500}
