@@ -28,6 +28,23 @@ public class EquationChecker : MonoBehaviour
             _equationVisualizer.EndShowing();
     }
 
+    public void RemoveCorrectEquation(Vector2Int gridPosition)
+    {
+        _equations.Clear();
+
+        CheckHorizontal(gridPosition.y);
+        CheckVertical(gridPosition.x);
+
+        for (int i = 0; i < _equations.Count; i++)
+            Remove(_equations[i]);
+    }
+
+    private void Remove(List<GridElement> equation)
+    {
+        for (int i = 0; i < equation.Count; i++)
+            equation[i].RemoveGridContent();
+    }
+
     #region Horizontal
     private void CheckHorizontal(int y)
     {
@@ -127,9 +144,15 @@ public class EquationChecker : MonoBehaviour
         if (_firstPart.Count > 0 && _secondPart.Count > 0)
         {
             var comparisonSign = (ComparisonSign)comparison.GridContent;
+            int? firstNumber = _numberCalculator.GetNumber(_firstPart, true);
+            int? secondNumber = _numberCalculator.GetNumber(_secondPart, false);
 
-            if (comparisonSign.IsTrueExpression(_numberCalculator.GetNumber(_firstPart, true),
-                _numberCalculator.GetNumber(_secondPart, false)))
+            //Debug.Log(firstNumber + " " + secondNumber);
+
+            if(firstNumber == null || secondNumber == null)
+                return;
+
+            if (comparisonSign.IsTrueExpression((int)firstNumber, (int)secondNumber))
             {
                 _equations.Add(_equations.Count, GetList(comparison));
             }

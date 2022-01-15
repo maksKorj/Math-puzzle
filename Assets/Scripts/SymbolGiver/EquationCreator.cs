@@ -29,6 +29,59 @@ public class EquationCreator : MonoBehaviour
         return FormList(firstNumber, mathSign, secondNumber, comparsion, equalTo);
     }
 
+    public List<GridContent> GetEquation(MathSign mathSign)
+    {
+        var comparsion = _symbols.ComparisonSigns[Random.Range(0, _symbols.ComparisonSigns.Length)];
+
+        int equalTo = mathSign.EqualTo(out int firstNumber, out int secondNumber);
+
+        if (comparsion.CanCorrecting(mathSign.EqualTo(firstNumber, secondNumber), equalTo, out int correctionRightPart))
+            equalTo = correctionRightPart;
+        else
+            comparsion = EqualSign();
+
+        return FormList(firstNumber, mathSign, secondNumber, comparsion, equalTo);
+    }
+
+    public List<GridContent> GetEquation(int number, bool isFirst)
+    {
+        int firstNumber, secondNumber, equalTo;
+        var mathSign = _symbols.MathSigns[Random.Range(0, _symbols.MathSigns.Length)];
+        var comparsion = _symbols.ComparisonSigns[Random.Range(0, _symbols.ComparisonSigns.Length)];
+
+        if(isFirst)
+        {
+            firstNumber = number;
+            equalTo = mathSign.EqualTo(firstNumber, out secondNumber);
+        }
+        else
+        {
+            secondNumber = number;
+            equalTo = mathSign.EqualTo(out firstNumber, secondNumber);
+        }
+
+        if (comparsion.CanCorrecting(mathSign.EqualTo(firstNumber, secondNumber), equalTo, out int correctionRightPart))
+            equalTo = correctionRightPart;
+        else
+            comparsion = EqualSign();
+
+        return FormList(firstNumber, mathSign, secondNumber, comparsion, equalTo);
+    }
+
+    public List<GridContent> GetSimpleEquation(int firstNumber, ComparisonSign comparisonSign, int equalTo)
+    {
+        var listGridContents = new List<GridContent>();
+        
+        AddToList(listGridContents, firstNumber);
+        listGridContents.Add(comparisonSign);
+        AddToList(listGridContents, equalTo);
+
+        return listGridContents;
+    }
+
+    public ComparisonSign GetRamdomComparisonSign()
+        => _symbols.ComparisonSigns[Random.Range(0, _symbols.ComparisonSigns.Length)];
+
     private List<GridContent> FormList(int firstNumber, MathSign mathSign, int secondNumber, ComparisonSign comparisonSign, int equalTo)
     {
         var listGridContents = new List<GridContent>();
@@ -67,6 +120,7 @@ public class EquationCreator : MonoBehaviour
                 return _symbols.Numbers[i];
         }
 
+        Debug.LogError("Number is null" + digit);
         return null;
     }
 
@@ -78,6 +132,7 @@ public class EquationCreator : MonoBehaviour
                 return _symbols.ComparisonSigns[i];
         }
 
+        Debug.LogError("Equal sign is null!");
         return null;
     }
 }

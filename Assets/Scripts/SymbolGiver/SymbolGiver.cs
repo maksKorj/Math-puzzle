@@ -27,9 +27,10 @@ public class SymbolGiver : MonoBehaviour
 
         SetOutput();
 
-        SetCharacter();
         _equationVisualizer.OnEndChecking += SetCharacter;
     }
+
+    //private void Start() => SetCharacter();
 
     private void OnDisable() 
         => _equationVisualizer.OnEndChecking -= SetCharacter;

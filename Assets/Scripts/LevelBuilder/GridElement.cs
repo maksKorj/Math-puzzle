@@ -20,8 +20,41 @@ namespace LevelBuilder
         public GridContent GridContent => _gridContent;
         public bool IsTaken => _gridContent != null;
         public bool IsTakenMathSign => IsTaken && _gridContent is MathSign;
+        public MathSign MathSign()
+        {
+            if (IsTakenMathSign)
+                return (MathSign) _gridContent;
+            else
+            {
+                Debug.Break();
+                Debug.LogError("Not Math sign");
+                return null;
+            }
+        }
         public bool IsTakenComparisonSigns => IsTaken && _gridContent is ComparisonSign;
+        public ComparisonSign ComparisonSign()
+        {
+            if (IsTakenComparisonSigns)
+                return (ComparisonSign) _gridContent;
+            else
+            {
+                Debug.Break();
+                Debug.LogError("Not Comparsion Sign!");
+                return null;
+            }
+        }
         public bool IsTakenNumber => IsTaken && _gridContent is Number;
+        public int Number()
+        {
+            if (IsTakenNumber)
+                return ((Number)_gridContent).Num;
+            else
+            {
+                Debug.Break();
+                Debug.LogError("Not number");
+                return -1;
+            }
+        }
         public float SelectingTime => _selectedTime * 2;
         public float HidingTime => _selectedTime + _particleSystem.main.duration;
         public float ShowingTime => _selectedTime;
@@ -54,14 +87,13 @@ namespace LevelBuilder
                 .Insert(_selectedTime + time, _backgroundImage.Image.DOColor(_backgroundImage.Color, time).SetEase(Ease.InFlash));
         }
 
-        public void ShowContent(GridContent gridContent)
+        public void ShowContent()
         {
-            ScaleToZero();
-            SetContent(gridContent);
-
             _backgroundImage.RectTransform.DOScale(1, _selectedTime).SetEase(Ease.OutBounce);
             _contentImage.RectTransform.DOScale(1, _selectedTime).SetEase(Ease.OutBounce);
         }
+
+        public void RemoveGridContent() => Hide();
 
         private void ScaleToZero()
         {

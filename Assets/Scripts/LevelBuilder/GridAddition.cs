@@ -5,7 +5,7 @@ namespace LevelBuilder
     public class GridAddition : MonoBehaviour
     {
         [SerializeField] private Symbols _symbols;
-        [SerializeField] private EquationCreator _equationCreator;
+        [SerializeField] private EquationBuilder _equationBuilder;
 
         private GridBuilder _gridBuilder;
 
@@ -14,7 +14,8 @@ namespace LevelBuilder
 
         public void AddElementsToGrid(bool isStartAdding = false)
         {
-            AddElements();
+            _equationBuilder.AddBrokenEquations();
+            //AddElements();
             /*if(isStartAdding)
             {
                 AddEquations();
@@ -48,7 +49,7 @@ namespace LevelBuilder
 
                 if(_gridBuilder.GridElement(x, y).IsTaken == false)
                 {
-                    _gridBuilder.GridElement(x, y).ShowContent(gridContents[Random.Range(0, gridContents.Length)]);
+                    _gridBuilder.GridElement(x, y).SetContent(gridContents[Random.Range(0, gridContents.Length)]);
                     amount--;
                 }
             }

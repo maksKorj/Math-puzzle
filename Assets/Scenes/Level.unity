@@ -1101,7 +1101,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a4e3d7c729c5d24794da9e32d63300d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _gridBuilder: {fileID: 1874345066}
+  _equationBuilder: {fileID: 1874345070}
   _equationCreator: {fileID: 1340795002}
 --- !u!1 &816164585
 GameObject:
@@ -1614,7 +1614,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1337128587}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1874345070}
+        m_TargetAssemblyTypeName: LevelBuilder.EquationBuilder, Assembly-CSharp
+        m_MethodName: ShowNew
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &1340794998
 GameObject:
   m_ObjectHideFlags: 0
@@ -1995,6 +2007,7 @@ GameObject:
   - component: {fileID: 1874345065}
   - component: {fileID: 1874345066}
   - component: {fileID: 1874345069}
+  - component: {fileID: 1874345070}
   - component: {fileID: 1874345064}
   - component: {fileID: 1874345067}
   - component: {fileID: 1874345068}
@@ -2104,6 +2117,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _symbols: {fileID: 11400000, guid: 504e88161bbbdb14a811a9882f5dedf0, type: 2}
+  _equationBuilder: {fileID: 1874345070}
+--- !u!114 &1874345070
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1874345062}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8fc1311bcd7ca9947bdcb3485ab75efa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _equationCreator: {fileID: 1340795002}
+  _equationChecker: {fileID: 1340795000}
+  _givenGridContents: []
 --- !u!1 &1958512697
 GameObject:
   m_ObjectHideFlags: 0

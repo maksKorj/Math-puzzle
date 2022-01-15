@@ -4,8 +4,11 @@ using UnityEngine;
 
 public class NumberCalculator
 {
-    public int GetNumber(List<GridElement> part, bool isFirstPart)
+    public int? GetNumber(List<GridElement> part, bool isFirstPart)
     {
+        if (CanGetNumber(part, isFirstPart) == false)
+            return null;
+
         int? number = null;
         int startIndex = 0;
 
@@ -24,6 +27,9 @@ public class NumberCalculator
         {
             numbers.Add(GetNumber(part, startIndex, part.Count));
         }
+
+        if (mathSigns.Count > 0 && numbers.Count == 0)
+            return null;
 
         if (mathSigns.Count == 0)
         {
@@ -60,7 +66,45 @@ public class NumberCalculator
             }
         }
 
-        return (int)number;
+        return number;
+    }
+
+    private bool CanGetNumber(List<GridElement> part, bool isFirstPart)
+    {
+        int mathSignAmount = 0;
+        for (int i = 0; i < part.Count; i++)
+        {
+            if (part[i].IsTakenMathSign)
+                mathSignAmount++;
+        }
+        if (mathSignAmount == part.Count)
+            return false;
+
+        if (isFirstPart == true)
+        {
+            for (int i = 1; i < 3; i++)
+            {
+                if (part.Count - i < 0)
+                    return true;
+
+                if (part[part.Count - i].IsTakenNumber)
+                    return true;
+            }
+
+            return false;
+        }
+        else
+        {
+            for (int i = 0; i < 2; i++)
+            {
+                if (i >= part.Count)
+                    return true;
+
+                if (part[i].IsTakenNumber)
+                    return true;
+            }
+            return false;
+        }
     }
 
     private int CheckLeftMathSign(List<GridElement> part, int startIndex, List<int> numbers, List<MathSign> mathSigns, int i)
@@ -69,9 +113,12 @@ public class NumberCalculator
         {
             if (i - 1 >= 0 && part[i - 1] != null && part[i - 1].IsTakenNumber)
             {
-                numbers.Add(GetNumber(part, startIndex, i));
+                if(i - 1 >= 0 && part[i - 1].IsTakenNumber)
+                {
+                    numbers.Add(GetNumber(part, startIndex, i));
+                }
+                    
                 mathSigns.Add(part[i].GridContent as MathSign);
-
                 startIndex = i + 1;
             }
             else
@@ -88,11 +135,13 @@ public class NumberCalculator
     {
         if (part[i].IsTakenMathSign)
         {
+            
             if (i + 1 < part.Count && part[i + 1] != null && part[i + 1].IsTakenNumber)
             {
-                numbers.Add(GetNumber(part, startIndex, i));
-                mathSigns.Add(part[i].GridContent as MathSign);
+                if(i - 1 >= 0 && part[i - 1].IsTakenNumber)
+                    numbers.Add(GetNumber(part, startIndex, i));
 
+                mathSigns.Add(part[i].GridContent as MathSign);
                 startIndex = i + 1;
             }
             else

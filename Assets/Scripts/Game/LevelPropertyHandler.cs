@@ -23,10 +23,7 @@ public class LevelPropertyHandler : MonoBehaviour
             if(_size == Vector2Int.zero)
             {
                 int x = Random.Range(7, 10);
-                int y = Random.Range(x - 1, x + 2);
-                
-                if (y < 7)
-                    y++;
+                int y = Random.Range(x, x + 2);
 
                 _size = new Vector2Int(x, y);
             }

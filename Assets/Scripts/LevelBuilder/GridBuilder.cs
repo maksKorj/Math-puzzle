@@ -34,6 +34,9 @@ namespace LevelBuilder
             OffsetGridElement();
             SetStartGridValue();
             ResetGridElementTranform();
+
+            //ToDO
+            FindObjectOfType<SymbolGiver>().SetCharacter();
         }
 
         #region CreatingGridElements
@@ -144,6 +147,21 @@ namespace LevelBuilder
                 {
                     if (_gridElements[x, y] != null)
                         _gridElements[x, y].ResetTransform();
+                }
+            }
+        }
+
+        public void ShowGridElement()
+        {
+            for (int x = 0; x < SizeX; x++)
+            {
+                for (int y = 0; y < SizeY; y++)
+                {
+                    if (InvalidIndex(x, y))
+                        continue;
+
+                    if (_gridElements[x, y].IsTaken)
+                        _gridElements[x, y].ShowContent();
                 }
             }
         }
