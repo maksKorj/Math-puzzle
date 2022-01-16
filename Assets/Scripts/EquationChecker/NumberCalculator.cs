@@ -109,9 +109,12 @@ public class NumberCalculator
                 }
 
                 count--;
-            } 
+            }
 
-            return part.Count > 0 && part[0].IsTakenNumber || part[0].IsTakenMathSign && part[0].MathSign() is Subtraction;
+            if (part.Count == 0)
+                return false;
+            else
+                return part[0].IsTakenNumber || part[0].IsTakenMathSign && part[0].MathSign() is Subtraction;
         }
     }
 

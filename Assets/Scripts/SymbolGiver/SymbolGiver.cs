@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class SymbolGiver : MonoBehaviour
@@ -8,13 +9,16 @@ public class SymbolGiver : MonoBehaviour
     [SerializeField] private EquationVisualizer _equationVisualizer;
     [SerializeField] private Symbols _symbols;
 
-    private int _count = 0;
     private GridContent _currentGridContent;
     private Action SettingCharacter;
     private SmartSymbolGiver _smartSymbolGiver;
     private SymbolGiverHelper _symbolGiverHelper;
+    private List<GridContent> _preparedGridContents;
 
     public SymbolGiverVisual SymbolGiverVisual => _symbolGiverVisual;
+
+    public GridContent GetNextSymbol() => _currentGridContent;
+    public void SetCharacter() => SettingCharacter();
 
     private void Awake()
     {
@@ -33,29 +37,73 @@ public class SymbolGiver : MonoBehaviour
     private void OnDisable() 
         => _equationVisualizer.OnEndChecking -= SetCharacter;
 
-    public GridContent GetNextSymbol() => _currentGridContent;
-
-    public void SetCharacter() => SettingCharacter();
-
-    private void WithoutRandomOutput()
+    private void SetOutput()
     {
-        int index = _count % _levelPropertyHandler.SymbolConfig().GridContentSize;
-        _currentGridContent = _levelPropertyHandler.SymbolConfig().GridContent(index);
-        _count++;
+        if (_levelPropertyHandler.IsContainedLevel())
+        {
+            SetPreparedList();
+
+            if (_levelPropertyHandler.SymbolConfig().IsRandomOutput == false)
+                SettingCharacter = PreparedWithoutRandomOutput;
+            else
+                SettingCharacter = PreparedRandomOutput;
+            
+            _equationVisualizer.OnEmptyGrid += ChangeToUnpreparedRandom;
+        }   
+        else
+            SettingCharacter = RandomOutput;
+    }
+
+    #region PreparedOutput
+    private void SetPreparedList()
+    {
+        _preparedGridContents = new List<GridContent>();
+
+        for (int i = 0; i < _levelPropertyHandler.SymbolConfig().GridContentAmount; i++)
+            _preparedGridContents.Add(_levelPropertyHandler.SymbolConfig().GridContent(i));
+    }
+
+    private void PreparedWithoutRandomOutput()
+    {
+        _currentGridContent = _preparedGridContents[0];
+        _preparedGridContents.RemoveAt(0);
 
         _symbolGiverVisual.ShowSymbol(_currentGridContent);
+
+        if (_preparedGridContents.Count <= 0)
+            ChangeToUnpreparedRandom();
     }
+
+    private void PreparedRandomOutput()
+    {
+        int index = UnityEngine.Random.Range(0, _preparedGridContents.Count);
+        _currentGridContent = _preparedGridContents[index];
+        _preparedGridContents.RemoveAt(index);
+
+        _symbolGiverVisual.ShowSymbol(_currentGridContent);
+
+        if (_preparedGridContents.Count <= 0)
+            ChangeToUnpreparedRandom();
+    }
+
+    private void ChangeToUnpreparedRandom()
+    {
+        SettingCharacter = RandomOutput;
+        _equationVisualizer.OnEmptyGrid -= ChangeToUnpreparedRandom;
+    }
+    #endregion
 
     private void RandomOutput()
     {
-        if (UnityEngine.Random.Range(0f, 100f) > 70f)
+        if (UnityEngine.Random.Range(0f, 100f) > 85f)
             _currentGridContent = _symbolGiverHelper.GetGridContent();
         else
         {
             var content = _smartSymbolGiver.GetElement();
 
-            if(content is Number == false)
+            if (content is Number == false)
             {
+                Debug.Log(IsRepeatedSign(content));
                 if (IsRepeatedSign(content))
                     content = _symbolGiverHelper.GetGridContent();
             }
@@ -63,29 +111,12 @@ public class SymbolGiver : MonoBehaviour
             _currentGridContent = content;
             _symbolGiverHelper.AddToAmount(_currentGridContent.GetType());
         }
-            
+
         _symbolGiverVisual.ShowSymbol(_currentGridContent);
     }
 
-    private bool IsRepeatedSign(GridContent content) => content is MathSign && _currentGridContent is MathSign 
+    private bool IsRepeatedSign(GridContent content) => content is MathSign && _currentGridContent is MathSign
         || content is ComparisonSign && _currentGridContent is ComparisonSign;
-
-    private void SetOutput()
-    {
-        if (_levelPropertyHandler.IsContainedLevel())
-        {
-            SettingCharacter = WithoutRandomOutput;
-            _equationVisualizer.OnEmptyGrid += ChangeToRandom;
-        }   
-        else
-            SettingCharacter = RandomOutput;
-    }
-
-    private void ChangeToRandom()
-    {
-        SettingCharacter = RandomOutput;
-        _equationVisualizer.OnEmptyGrid -= ChangeToRandom;
-    }
 }
 
 public class SymbolGiverHelper
