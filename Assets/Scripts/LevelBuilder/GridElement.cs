@@ -64,9 +64,15 @@ namespace LevelBuilder
             _particleSystemMain = _particleSystem.main;
         }
 
-        public void SetContent(GridContent gridContent)
+        public void SetContent(GridContent gridContent, bool scaleToZero = true)
         {
-            //ScaleToZero();
+            if(gridContent == null)
+            {
+                //Debug.LogError("GridContent is null");
+                return;
+            }
+
+            if(scaleToZero) ScaleToZero();
 
             _contentImage.SetImage(gridContent.SymbloSprite, gridContent.SymbolColor);
             _backgroundImage.SetImage(gridContent.BackgroundSprite, gridContent.BackgroundColor);

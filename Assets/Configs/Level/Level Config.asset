@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Level Config
   m_EditorClassIdentifier: 
   _levelSettings:
-  - _level: 100
+  - _level: 1
     _size: {x: 8, y: 9}
     _symbolConfig: {fileID: 11400000, guid: 78efd3aacfd8c9e46b3298bdf07d802b, type: 2}
     _startPositionConfig: {fileID: 11400000, guid: 6c59cc9ee594555419bc0cba5c74ffdf, type: 2}

@@ -8,11 +8,11 @@ public class EquationVisualizer : MonoBehaviour
 {
     [SerializeField] private GridElement _gridElement;
     [SerializeField] private UnitGridAmountChecker _gridAmountChecker;
-    [SerializeField] private GridAddition _gridAddition;
 
     WaitForSeconds _selectDelay, _hideDelay, _showDelay;
 
     public event Action OnEndChecking;
+    public event Action OnEmptyGrid;
 
     private void Awake()
     {
@@ -46,7 +46,7 @@ public class EquationVisualizer : MonoBehaviour
         _gridAmountChecker.CountAmount();
         if(_gridAmountChecker.IsEmpty)
         {
-            _gridAddition.AddElementsToGrid();
+            OnEmptyGrid?.Invoke();
             yield return _showDelay;
             OnEndChecking?.Invoke();
         }

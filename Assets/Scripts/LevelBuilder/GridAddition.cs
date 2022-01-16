@@ -6,13 +6,28 @@ namespace LevelBuilder
     {
         [SerializeField] private Symbols _symbols;
         [SerializeField] private EquationBuilder _equationBuilder;
-
+        [SerializeField] private EquationVisualizer _equationVisualizer;
+        
+        private GridAnimation _gridAnimation;
         private GridBuilder _gridBuilder;
 
         private void Awake()
-            => _gridBuilder = GetComponent<GridBuilder>();
+        {
+            _equationVisualizer.OnEmptyGrid += AddElementsToGrid;
+            _gridBuilder = GetComponent<GridBuilder>();
+            _gridAnimation = GetComponent<GridAnimation>();
+        }
 
-        public void AddElementsToGrid(bool isStartAdding = false)
+        private void OnDisable()
+            => _equationVisualizer.OnEmptyGrid -= AddElementsToGrid;
+
+        private void AddElementsToGrid()
+        {
+            AddElementsToGrid(false);
+            _gridAnimation.ShowGridElements();
+        }
+
+        public void AddElementsToGrid(bool isStartAdding)
         {
             _equationBuilder.AddBrokenEquations();
             //AddElements();
@@ -33,11 +48,6 @@ namespace LevelBuilder
             AddElement(_symbols.Numbers, 3);
             AddElement(_symbols.MathSigns, 1);
             AddElement(_symbols.ComparisonSigns, 1);
-        }
-
-        private void AddEquations()
-        {
-            //
         }
 
         private void AddElement(GridContent[] gridContents, int amount)

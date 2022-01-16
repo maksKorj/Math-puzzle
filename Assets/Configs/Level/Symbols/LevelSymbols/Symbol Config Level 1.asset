@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Symbol Config Level 1
   m_EditorClassIdentifier: 
   _gridContents:
-  - {fileID: 11400000, guid: 8a00270208bf79e42a9bc58af0e15c3e, type: 2}
-  - {fileID: 11400000, guid: 118b2e0f016b22347adbba5f1b12fe0a, type: 2}
+  - {fileID: 11400000, guid: 685094ac6a3da394b9953bc260cd81b4, type: 2}
   - {fileID: 11400000, guid: 8d11f8a7cfb1d5d4289aff371843f281, type: 2}
-  - {fileID: 11400000, guid: 118b2e0f016b22347adbba5f1b12fe0a, type: 2}
+  - {fileID: 11400000, guid: 6c714b81bf17df147ba478e7cb061069, type: 2}
+  - {fileID: 11400000, guid: a8f4bd18fb3bc6c4388efee430a23639, type: 2}

@@ -30,8 +30,6 @@ public class SymbolGiver : MonoBehaviour
         _equationVisualizer.OnEndChecking += SetCharacter;
     }
 
-    //private void Start() => SetCharacter();
-
     private void OnDisable() 
         => _equationVisualizer.OnEndChecking -= SetCharacter;
 
@@ -54,19 +52,39 @@ public class SymbolGiver : MonoBehaviour
             _currentGridContent = _symbolGiverHelper.GetGridContent();
         else
         {
-            _currentGridContent = _smartSymbolGiver.GetElement();
+            var content = _smartSymbolGiver.GetElement();
+
+            if(content is Number == false)
+            {
+                if (IsRepeatedSign(content))
+                    content = _symbolGiverHelper.GetGridContent();
+            }
+
+            _currentGridContent = content;
             _symbolGiverHelper.AddToAmount(_currentGridContent.GetType());
         }
             
         _symbolGiverVisual.ShowSymbol(_currentGridContent);
     }
 
+    private bool IsRepeatedSign(GridContent content) => content is MathSign && _currentGridContent is MathSign 
+        || content is ComparisonSign && _currentGridContent is ComparisonSign;
+
     private void SetOutput()
     {
         if (_levelPropertyHandler.IsContainedLevel())
+        {
             SettingCharacter = WithoutRandomOutput;
+            _equationVisualizer.OnEmptyGrid += ChangeToRandom;
+        }   
         else
             SettingCharacter = RandomOutput;
+    }
+
+    private void ChangeToRandom()
+    {
+        SettingCharacter = RandomOutput;
+        _equationVisualizer.OnEmptyGrid -= ChangeToRandom;
     }
 }
 

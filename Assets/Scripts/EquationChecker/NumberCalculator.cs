@@ -4,155 +4,151 @@ using UnityEngine;
 
 public class NumberCalculator
 {
+    private List<NumberMathSign> _equation;
+
+    public NumberCalculator()
+        => _equation = new List<NumberMathSign>();
+
     public int? GetNumber(List<GridElement> part, bool isFirstPart)
     {
+        _equation.Clear();
+
         if (CanGetNumber(part, isFirstPart) == false)
             return null;
 
-        int? number = null;
         int startIndex = 0;
 
-        var numbers = new List<int>();
-        var mathSigns = new List<MathSign>();
-
         for (int i = 0; i < part.Count; i++)
-        {
-            if(isFirstPart)
-                startIndex = CheckLeftMathSign(part, startIndex, numbers, mathSigns, i);
-            else
-                startIndex = CheckRightMathSign(part, startIndex, numbers, mathSigns, i);
-        }
+            startIndex = CheckPart(part, startIndex, i);
 
-        if (mathSigns.Count > 0 && startIndex < part.Count)
-        {
-            numbers.Add(GetNumber(part, startIndex, part.Count));
-        }
+        if (MathSignAmountZero() == false && startIndex < part.Count)
+            _equation.Add(new NumberMathSign(GetNumber(part, startIndex, part.Count)));
 
-        if (mathSigns.Count > 0 && numbers.Count == 0)
-            return null;
+        if (_equation.Count == 1)
+            return _equation[0].Number;
 
-        if (mathSigns.Count == 0)
+        if (_equation.Count == 0)
         {
             return GetNumber(part, 0, part.Count);
         }
         else
         {
-            for (int i = 0; i < numbers.Count; i++)
+            if (_equation[0].IsMathSign(out MathSign mathSign))
             {
-                if (i == 1)
-                    continue;
-
-                if (number == null)
+                if (mathSign is Subtraction)
                 {
-                    if (i + 1 < numbers.Count)
-                    {
-                        number = mathSigns[i].EqualTo(numbers[i], numbers[i + 1]);
-                    }
-                    else
-                    {
-                        number = numbers[i];
-                        break;
-                    }
+                    _equation[1].NegativeNumber();
+                    _equation.RemoveAt(0);
                 }
                 else
+                    Debug.LogError("First sign is not subtraction!!!");
+            }
+
+            while (HasMultiplicationOrDivision() != false);
+
+            while (_equation.Count != 1)
+            {
+                for (int i = 0; i < _equation.Count; i++)
                 {
-                    if (i - 1 < mathSigns.Count)
+                    if (_equation[i].IsMathSign(out mathSign))
                     {
-                        number = mathSigns[i - 1].EqualTo((int)number, numbers[i]);
-                    }
-                    else
+                        CalculateAndRemove(i, mathSign.EqualTo(_equation[i - 1].Number, _equation[i + 1].Number));
                         break;
+                    }
                 }
             }
-        }
 
-        return number;
+            return _equation[0].Number;
+        }
     }
 
     private bool CanGetNumber(List<GridElement> part, bool isFirstPart)
     {
-        int mathSignAmount = 0;
-        for (int i = 0; i < part.Count; i++)
-        {
-            if (part[i].IsTakenMathSign)
-                mathSignAmount++;
-        }
-        if (mathSignAmount == part.Count)
-            return false;
-
         if (isFirstPart == true)
         {
-            for (int i = 1; i < 3; i++)
-            {
-                if (part.Count - i < 0)
-                    return true;
+            int count = part.Count;
 
-                if (part[part.Count - i].IsTakenNumber)
-                    return true;
+            while (count >= 0)
+            {
+                for (int i = 0; i < part.Count; i++)
+                {
+                    if (IsSingleMathSign(isFirstPart, part, i))
+                    {
+                        if (part[i].MathSign() is Subtraction && i + 1 < part.Count && part[i + 1].IsTakenNumber)
+                            count--;
+                        else
+                        {
+                            part.RemoveAt(i);
+                            break;
+                        }
+                    }
+                    else
+                        count--;
+                }
+
+                count--;
             }
 
-            return false;
-        }
+            return part.Count > 0 && part[part.Count - 1].IsTakenNumber;
+        }   
         else
         {
-            for (int i = 0; i < 2; i++)
-            {
-                if (i >= part.Count)
-                    return true;
+            int count = part.Count;
 
-                if (part[i].IsTakenNumber)
-                    return true;
-            }
-            return false;
-        }
-    }
-
-    private int CheckLeftMathSign(List<GridElement> part, int startIndex, List<int> numbers, List<MathSign> mathSigns, int i)
-    {
-        if (part[i].IsTakenMathSign)
-        {
-            if (i - 1 >= 0 && part[i - 1] != null && part[i - 1].IsTakenNumber)
+            while (count >= 0)
             {
-                if(i - 1 >= 0 && part[i - 1].IsTakenNumber)
+                for (int i = part.Count - 1; i >= 0; i--)
                 {
-                    numbers.Add(GetNumber(part, startIndex, i));
+                    if (IsSingleMathSign(isFirstPart, part, i))
+                    {
+                        part.RemoveAt(i);
+                        break;
+                    }
+                    else
+                        count--;
                 }
-                    
-                mathSigns.Add(part[i].GridContent as MathSign);
-                startIndex = i + 1;
-            }
-            else
-            {
-                part.RemoveAt(i);
-                startIndex = i + 1;
-            }
-        }
 
-        return startIndex;
+                count--;
+            } 
+
+            return part.Count > 0 && part[0].IsTakenNumber || part[0].IsTakenMathSign && part[0].MathSign() is Subtraction;
+        }
     }
 
-    private int CheckRightMathSign(List<GridElement> part, int startIndex, List<int> numbers, List<MathSign> mathSigns, int i)
+    private static bool IsSingleMathSign(bool isFirstPart, List<GridElement> part, int i)
+    {
+        if(isFirstPart)
+            return part[i].IsTakenMathSign && i - 1 < 0;
+        else
+            return part[i].IsTakenMathSign && i + 1 >= part.Count;
+    }
+
+
+    private int CheckPart(List<GridElement> part, int startIndex, int i)
     {
         if (part[i].IsTakenMathSign)
         {
-            
-            if (i + 1 < part.Count && part[i + 1] != null && part[i + 1].IsTakenNumber)
+            if (i - 1 >= 0 && part[i - 1].IsTakenNumber)
             {
-                if(i - 1 >= 0 && part[i - 1].IsTakenNumber)
-                    numbers.Add(GetNumber(part, startIndex, i));
+                _equation.Add(new NumberMathSign(GetNumber(part, startIndex, i)));
 
-                mathSigns.Add(part[i].GridContent as MathSign);
-                startIndex = i + 1;
+                if (IsNextNumber(part, i))
+                    _equation.Add(new NumberMathSign(part[i].GridContent as MathSign));
+                else
+                    part.RemoveAt(i);
             }
+            else if(part[i].MathSign() is Subtraction && IsNextNumber(part, i))
+                _equation.Add(new NumberMathSign(part[i].GridContent as MathSign));
             else
-            {
                 part.RemoveAt(i);
-                startIndex = i + 1;
-            }
-        }
 
+            startIndex = i + 1;
+        }
         return startIndex;
     }
+
+    private static bool IsNextNumber(List<GridElement> part, int i)
+        => i + 1 < part.Count && part[i + 1].IsTakenNumber;
 
     private int GetNumber(List<GridElement> part, int startIndex, int endIndex)
     {
@@ -166,4 +162,61 @@ public class NumberCalculator
         }
         return number;
     }
+
+    private bool MathSignAmountZero()
+    {
+        for(int i = 0; i < _equation.Count; i++)
+        {
+            if (_equation[i].IsMathSign())
+                return false;
+        }
+
+        return true;
+    }
+
+    private bool HasMultiplicationOrDivision()
+    {
+        for(int i = 0; i < _equation.Count; i++)
+        {
+            if(_equation[i].IsMathSign(out MathSign mathSign))
+            {
+                if (mathSign is Division || mathSign is Multiplication)
+                {
+                    int number = mathSign.EqualTo(_equation[i - 1].Number, _equation[i + 1].Number);
+
+                    CalculateAndRemove(i, number);
+
+                    return true;
+                }
+            }
+        }
+
+        return false;
+    }
+
+    private void CalculateAndRemove(int i, int number)
+    {
+        _equation[i - 1] = new NumberMathSign(number);
+        _equation.RemoveAt(i + 1);
+        _equation.RemoveAt(i);
+    }
+}
+
+public class NumberMathSign
+{
+    private int? _number;
+    private MathSign _mathSign;
+
+    public NumberMathSign(int number) => _number = number;
+    public NumberMathSign(MathSign mathSign) => _mathSign = mathSign;
+
+    public int Number => (int)_number;
+    public void NegativeNumber() => _number = -_number;
+
+    public bool IsMathSign(out MathSign mathSign)
+    {
+        mathSign = _mathSign;
+        return mathSign != null;
+    }
+    public bool IsMathSign() => _mathSign != null;
 }

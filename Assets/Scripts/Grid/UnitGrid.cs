@@ -159,7 +159,7 @@ public class UnitGrid : MonoBehaviour
             return;
         }
 
-        _gridBuilder.GridElement(_endPosition).SetContent(_currentGridContent);
+        _gridBuilder.GridElement(_endPosition).SetContent(_currentGridContent, false);
         _equationChecker.Check(_endPosition);
     }
 

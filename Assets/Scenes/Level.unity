@@ -1687,7 +1687,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _gridElement: {fileID: 3910632566187712009, guid: c40a31ea7534d4d40bb45d48e4e7284f, type: 3}
   _gridAmountChecker: {fileID: 1874345068}
-  _gridAddition: {fileID: 1874345069}
 --- !u!114 &1340795002
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2011,6 +2010,7 @@ GameObject:
   - component: {fileID: 1874345064}
   - component: {fileID: 1874345067}
   - component: {fileID: 1874345068}
+  - component: {fileID: 1874345071}
   m_Layer: 5
   m_Name: Grid
   m_TagString: Untagged
@@ -2118,6 +2118,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _symbols: {fileID: 11400000, guid: 504e88161bbbdb14a811a9882f5dedf0, type: 2}
   _equationBuilder: {fileID: 1874345070}
+  _equationVisualizer: {fileID: 1340795001}
 --- !u!114 &1874345070
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2133,6 +2134,18 @@ MonoBehaviour:
   _equationCreator: {fileID: 1340795002}
   _equationChecker: {fileID: 1340795000}
   _givenGridContents: []
+--- !u!114 &1874345071
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1874345062}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 256c06974df56cd46bf8ecb129c1df70, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1958512697
 GameObject:
   m_ObjectHideFlags: 0
