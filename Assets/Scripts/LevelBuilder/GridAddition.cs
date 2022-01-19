@@ -1,4 +1,6 @@
+using System;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 namespace LevelBuilder
 {
@@ -7,9 +9,12 @@ namespace LevelBuilder
         [SerializeField] private Symbols _symbols;
         [SerializeField] private EquationBuilder _equationBuilder;
         [SerializeField] private EquationVisualizer _equationVisualizer;
+        [SerializeField] private ClearFieldHandler _clearFieldHandler;
         
         private GridAnimation _gridAnimation;
         private GridBuilder _gridBuilder;
+
+        public event Action OnWin;
 
         private void Awake()
         {
@@ -29,18 +34,23 @@ namespace LevelBuilder
 
         public void AddElementsToGrid(bool isStartAdding)
         {
-            _equationBuilder.AddBrokenEquations();
-            //AddElements();
-            /*if(isStartAdding)
+            if (isStartAdding)
             {
-                AddEquations();
+                _equationBuilder.AddBrokenEquations();
                 return;
-            }    
+            }
 
-            if(Random.Range(0, 101) < 40)
+            if(_clearFieldHandler.IsActiveCondition)
+            {
+                OnWin?.Invoke();
+                Debug.Log("Win");
+                return;
+            }
+
+            if (Random.Range(0, 101) < 40)
                 AddElements();
             else
-                AddEquations();*/
+                _equationBuilder.AddBrokenEquations();
         }
 
         private void AddElements()

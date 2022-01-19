@@ -13,35 +13,9 @@ MonoBehaviour:
   m_Name: Start Position Level 1
   m_EditorClassIdentifier: 
   _gridElementContents:
-  - _position: {x: 0, y: 1}
-    _gridContent: {fileID: 11400000, guid: 118b2e0f016b22347adbba5f1b12fe0a, type: 2}
   - _position: {x: 1, y: 1}
-    _gridContent: {fileID: 11400000, guid: 118b2e0f016b22347adbba5f1b12fe0a, type: 2}
-  - _position: {x: 2, y: 1}
-    _gridContent: {fileID: 11400000, guid: 118b2e0f016b22347adbba5f1b12fe0a, type: 2}
-  - _position: {x: 3, y: 1}
-    _gridContent: {fileID: 11400000, guid: 118b2e0f016b22347adbba5f1b12fe0a, type: 2}
-  - _position: {x: 4, y: 1}
-    _gridContent: {fileID: 11400000, guid: 4b2742191b532f84f8b38d6a49392606, type: 2}
-  - _position: {x: 5, y: 1}
-    _gridContent: {fileID: 11400000, guid: 118b2e0f016b22347adbba5f1b12fe0a, type: 2}
-  - _position: {x: 6, y: 1}
-    _gridContent: {fileID: 11400000, guid: 118b2e0f016b22347adbba5f1b12fe0a, type: 2}
-  - _position: {x: 7, y: 1}
-    _gridContent: {fileID: 11400000, guid: 118b2e0f016b22347adbba5f1b12fe0a, type: 2}
-  - _position: {x: 0, y: 2}
-    _gridContent: {fileID: 11400000, guid: 118b2e0f016b22347adbba5f1b12fe0a, type: 2}
-  - _position: {x: 7, y: 2}
-    _gridContent: {fileID: 11400000, guid: 685094ac6a3da394b9953bc260cd81b4, type: 2}
-  - _position: {x: 6, y: 2}
     _gridContent: {fileID: 11400000, guid: 8a00270208bf79e42a9bc58af0e15c3e, type: 2}
-  - _position: {x: 5, y: 2}
-    _gridContent: {fileID: 11400000, guid: f0d8a0f92aa13784baadd3c640d7dd4c, type: 2}
-  - _position: {x: 4, y: 2}
-    _gridContent: {fileID: 11400000, guid: 6c714b81bf17df147ba478e7cb061069, type: 2}
-  - _position: {x: 3, y: 2}
-    _gridContent: {fileID: 11400000, guid: 4b2742191b532f84f8b38d6a49392606, type: 2}
-  - _position: {x: 2, y: 2}
-    _gridContent: {fileID: 0}
+  - _position: {x: 2, y: 1}
+    _gridContent: {fileID: 11400000, guid: 5a0adba21fbcd9942877eb17b8d5ae54, type: 2}
   - _position: {x: 1, y: 2}
-    _gridContent: {fileID: 11400000, guid: 6c714b81bf17df147ba478e7cb061069, type: 2}
+    _gridContent: {fileID: 11400000, guid: e6cfd0d91b1dc84449c83466575fbc4c, type: 2}

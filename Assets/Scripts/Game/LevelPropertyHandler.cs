@@ -35,6 +35,8 @@ public class LevelPropertyHandler : MonoBehaviour
     public int AmountOfMoves()
     {
         //ToDo
+        if (IsContainedLevel())
+            return _levelSettings.VictoryCondition.MoveAmount;
 
         /*if (IsLevelContains())
             return _levelSettings.VictoryCondition.MoveAmount;

@@ -37,6 +37,17 @@ public class SymbolGiver : MonoBehaviour
     private void OnDisable() 
         => _equationVisualizer.OnEndChecking -= SetCharacter;
 
+    public void ChangeSymbol(GridContent gridContent)
+    {
+        _currentGridContent = gridContent;
+        _symbolGiverVisual.ChangeSymbol(_currentGridContent);
+    }
+
+    public void ChangeSymbol()
+    {
+        _symbolGiverVisual.ChangeSymbol(SetCharacter);
+    }
+
     private void SetOutput()
     {
         if (_levelPropertyHandler.IsContainedLevel())
@@ -65,6 +76,9 @@ public class SymbolGiver : MonoBehaviour
 
     private void PreparedWithoutRandomOutput()
     {
+        if (_symbolGiverVisual.IsEmpty() == false)
+            return;
+
         _currentGridContent = _preparedGridContents[0];
         _preparedGridContents.RemoveAt(0);
 
@@ -76,6 +90,9 @@ public class SymbolGiver : MonoBehaviour
 
     private void PreparedRandomOutput()
     {
+        if (_symbolGiverVisual.IsEmpty() == false)
+            return;
+
         int index = UnityEngine.Random.Range(0, _preparedGridContents.Count);
         _currentGridContent = _preparedGridContents[index];
         _preparedGridContents.RemoveAt(index);
@@ -95,6 +112,9 @@ public class SymbolGiver : MonoBehaviour
 
     private void RandomOutput()
     {
+        if (_symbolGiverVisual.IsEmpty() == false)
+            return;
+
         if (UnityEngine.Random.Range(0f, 100f) > 85f)
             _currentGridContent = _symbolGiverHelper.GetGridContent();
         else
@@ -103,7 +123,6 @@ public class SymbolGiver : MonoBehaviour
 
             if (content is Number == false)
             {
-                Debug.Log(IsRepeatedSign(content));
                 if (IsRepeatedSign(content))
                     content = _symbolGiverHelper.GetGridContent();
             }

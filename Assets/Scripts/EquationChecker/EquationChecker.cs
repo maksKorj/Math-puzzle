@@ -15,6 +15,17 @@ public class EquationChecker : MonoBehaviour
     private void Awake()
         => _equationVisualizer = GetComponent<EquationVisualizer>();
 
+    public void Check()
+    {
+        _equations.Clear();
+        CheckAllGrid();
+
+        if (_equations.Count > 0)
+            _equationVisualizer.Show(_equations);
+        else
+            _equationVisualizer.EndShowing();
+    }
+
     public void Check(Vector2Int gridPosition)
     {
         _equations.Clear();
@@ -26,6 +37,30 @@ public class EquationChecker : MonoBehaviour
             _equationVisualizer.Show(_equations);
         else
             _equationVisualizer.EndShowing();
+    }
+
+    public bool HasCompletedEquation(out Dictionary<int, List<GridElement>> equations)
+    {
+        _equations.Clear();
+        CheckAllGrid();
+        equations = _equations;
+
+        return _equations.Count > 0;
+    }
+
+    private void CheckAllGrid()
+    {
+        for (int x = 0; x < _gridBuilder.SizeX; x++)
+        {
+            for (int y = 0; y < _gridBuilder.SizeY; y++)
+            {
+                if (x == y)
+                {
+                    CheckHorizontal(y);
+                    CheckVertical(x);
+                }
+            }
+        }
     }
 
     public void RemoveCorrectEquation(Vector2Int gridPosition)

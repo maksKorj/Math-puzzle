@@ -12,11 +12,12 @@ namespace LevelBuilder
         [Header("Effects")]
         [SerializeField] private ParticleSystem _particleSystem;
         [SerializeField] private Color _selectColor;
-        [SerializeField] private float _selectedTime = 1f;
+        [SerializeField] private float _animationTime = 1f;
 
         private GridContent _gridContent;
         private ParticleSystem.MainModule _particleSystemMain;
 
+        #region GridContentProperties
         public GridContent GridContent => _gridContent;
         public bool IsTaken => _gridContent != null;
         public bool IsTakenMathSign => IsTaken && _gridContent is MathSign;
@@ -55,15 +56,18 @@ namespace LevelBuilder
                 return -1;
             }
         }
-        public float SelectingTime => _selectedTime * 2;
-        public float HidingTime => _selectedTime + _particleSystem.main.duration;
-        public float ShowingTime => _selectedTime;
+        #endregion
 
-        private void Awake()
-        {
-            _particleSystemMain = _particleSystem.main;
-        }
+        #region AnimationTimeProperties
+        public float SelectingTime => _animationTime * 2;
+        public float HidingTime => _animationTime + _particleSystem.main.duration;
+        public float ShowingTime => _animationTime;
+        public float ChangePozitionEffectTime => _animationTime / 2;
+        #endregion
 
+        private void Awake() => _particleSystemMain = _particleSystem.main;
+
+        #region SetContent
         public void SetContent(GridContent gridContent, bool scaleToZero = true)
         {
             if(gridContent == null)
@@ -80,9 +84,16 @@ namespace LevelBuilder
             _gridContent = gridContent;
         }
 
-        public void SelectEquation()
+        private void ScaleToZero()
         {
-            var time = _selectedTime / 2;
+            _contentImage.RectTransform.localScale = Vector3.zero;
+            _backgroundImage.RectTransform.localScale = Vector3.zero;
+        }
+        #endregion
+
+        public void SelectAtEquation()
+        {
+            var time = _animationTime / 2;
             var sequence = DOTween.Sequence();
 
             sequence.Append(_backgroundImage.RectTransform.DOScale(0.9f, time).SetEase(Ease.InOutFlash))
@@ -90,45 +101,82 @@ namespace LevelBuilder
                 .Append(_backgroundImage.RectTransform.DOScale(1.05f, time))
                 .Insert(time, _contentImage.RectTransform.DOScale(1f, time))
                 .Insert(time, _backgroundImage.Image.DOColor(_selectColor, time).SetEase(Ease.InOutElastic))
-                .Insert(_selectedTime + time, _backgroundImage.Image.DOColor(_backgroundImage.Color, time).SetEase(Ease.InFlash));
+                .Insert(_animationTime + time, _backgroundImage.Image.DOColor(_backgroundImage.Color, time).SetEase(Ease.InFlash));
         }
 
-        public void ShowContent()
+        public void ScaleToFullSize()
         {
-            _backgroundImage.RectTransform.DOScale(1, _selectedTime).SetEase(Ease.OutBounce);
-            _contentImage.RectTransform.DOScale(1, _selectedTime).SetEase(Ease.OutBounce);
+            _backgroundImage.RectTransform.DOScale(1, _animationTime).SetEase(Ease.OutBounce);
+            _contentImage.RectTransform.DOScale(1, _animationTime).SetEase(Ease.OutBounce);
         }
 
-        public void RemoveGridContent() => Hide();
+        public void RemoveGridContent() => ResetGridContent();
 
-        private void ScaleToZero()
+        #region HideEffect
+        public void PlayHideEffect()
         {
-            _contentImage.RectTransform.localScale = Vector3.zero;
-            _backgroundImage.RectTransform.localScale = Vector3.zero;
+            _backgroundImage.RectTransform.DOScale(0.5f, _animationTime).SetEase(Ease.InOutBack);
+            _contentImage.RectTransform.DOScale(0.5f, _animationTime).SetEase(Ease.InOutBack).OnComplete(ExplodeAndHide);
         }
 
-        #region HideWithEffect
-        public void HideAfterSelect()
-        {
-            //_backgroundImage.Image.DOColor(_selectColor, _selectedTime / 2);
-            _backgroundImage.RectTransform.DOScale(0.5f, _selectedTime).SetEase(Ease.InOutBack);
-            _contentImage.RectTransform.DOScale(0.5f, _selectedTime).SetEase(Ease.InOutBack).OnComplete(BoomAndHide);
-        }
-
-        private void BoomAndHide()
+        private void ExplodeAndHide()
         {
             _particleSystemMain.startColor = _selectColor;
             _particleSystem.Play();
-            Hide();
+            ResetGridContent();
         }
 
-        private void Hide()
+        private void ResetGridContent()
         {
             _contentImage.ResetImage();
             _backgroundImage.ResetImage();
             _gridContent = null;
         }
         #endregion
+
+        #region JumpAnimation
+        private Sequence _selecting;
+        public void JumpAnimation()
+        {
+            _selecting = DOTween.Sequence();
+
+            _selecting.Append(_backgroundImage.RectTransform.DOPunchScale(-Vector3.one * 0.08f, _animationTime, 1))
+                .Insert(0, _contentImage.RectTransform.DOPunchScale(-Vector3.one * 0.08f, _animationTime, 1))
+                .SetLoops(-1);
+        }
+
+        public void StopJumpAnimation()
+        {
+            _selecting.Kill();
+            ScaleToDefult();
+        }
+
+        public void ScaleToDefult()
+        {
+            _backgroundImage.RectTransform.DOScale(1, 0.4f).SetEase(Ease.OutBounce);
+            _contentImage.RectTransform.DOScale(1, 0.4f).SetEase(Ease.OutBounce);
+        }
+        #endregion
+
+        #region ChangePosition
+        public void SelectChangePosition()
+        {
+            _backgroundImage.Image.DOFade(0.5f, _animationTime / 2);
+            _contentImage.Image.DOFade(0.5f, _animationTime / 2);
+        }
+
+        public void UnSelectChangePosition()
+        {
+            _backgroundImage.Image.DOFade(1f, _animationTime / 2);
+            _contentImage.Image.DOFade(1f, _animationTime / 2);
+        }
+        #endregion
+
+        public void ResetColor()
+        {
+            _backgroundImage.ResetColor();
+            _contentImage.ResetColor();
+        }
     }
 }
 

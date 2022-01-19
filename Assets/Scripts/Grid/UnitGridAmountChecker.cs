@@ -7,7 +7,7 @@ public class UnitGridAmountChecker : MonoBehaviour
     private int _totalAmount;
     private GridBuilder _gridBuilder;
 
-    public bool IsFull => _totalAmount >= _maxAmount;
+    public bool IsFull => _totalAmount >= _maxAmount - 4;
     public bool IsEmpty => _totalAmount <= 0;
 
     private void Awake()

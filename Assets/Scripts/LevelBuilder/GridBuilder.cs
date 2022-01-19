@@ -137,9 +137,6 @@ namespace LevelBuilder
             }
             else
                 GetComponent<GridAddition>().AddElementsToGrid(true);
-
-            //ToDo
-            GetComponent<GridAnimation>().ShowGridElements();
         }
 
         private void ResetGridElementTranform()

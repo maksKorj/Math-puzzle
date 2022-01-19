@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c1d40350bf482d6438b80d1e27ad38e8, type: 3}
+  m_Name: Change Symbol Giver
+  m_EditorClassIdentifier: 
+  _boosterImage: {fileID: 1360658841765157384, guid: 94771974db17e4046bf61d62bbffb28f, type: 3}
+  _name: 
+  _coinPrice: 0
+  _gemPrice: 0
+  _isImmediatelyApply: 0
+  _availableFromLevel: 0

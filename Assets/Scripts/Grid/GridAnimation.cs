@@ -1,5 +1,6 @@
 using UnityEngine;
 using LevelBuilder;
+using System;
 
 public class GridAnimation : MonoBehaviour
 {
@@ -9,15 +10,24 @@ public class GridAnimation : MonoBehaviour
         => _gridBuilder = GetComponent<GridBuilder>();
 
     public void ShowGridElements()
+        => MakeAction((int x, int y) => _gridBuilder.GridElement(x, y).ScaleToFullSize());
+
+    public void SelectAll() 
+        => MakeAction((int x, int y) => _gridBuilder.GridElement(x, y).JumpAnimation());
+
+    public void UnSelectAll()
+        => MakeAction((int x, int y) => _gridBuilder.GridElement(x, y).StopJumpAnimation());
+
+    private void MakeAction(Action<int, int> action)
     {
-        for(int x = 0; x < _gridBuilder.SizeX; x++)
+        for (int x = 0; x < _gridBuilder.SizeX; x++)
         {
-            for(int y = 0; y < _gridBuilder.SizeY; y++)
+            for (int y = 0; y < _gridBuilder.SizeY; y++)
             {
                 if (_gridBuilder.GridElement(x, y) == null)
                     continue;
 
-                _gridBuilder.GridElement(x, y).ShowContent();
+                action(x, y);
             }
         }
     }

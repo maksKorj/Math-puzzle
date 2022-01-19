@@ -11,8 +11,21 @@ public class SymbolGiverVisual : MonoBehaviour
 
     private RectTransform _symbolTransform, _backgroundTransform;
     private Vector2 _startPosition = new Vector2(0, 0);
+    private Vector2 _bottomPosition = new Vector2(0, -160);
 
     public event Action OnEndGivingSymbol;
+
+    public bool IsEmpty()
+    {
+        if (_background.enabled == false)
+            return true;
+        else
+        {
+            OnEndGivingSymbol?.Invoke();
+            return false;
+        }
+            
+    }
 
     private void Awake()
     {
@@ -20,6 +33,20 @@ public class SymbolGiverVisual : MonoBehaviour
     }
 
     public bool IsFading { get; private set; }
+
+    public void ChangeSymbol(GridContent gridContent)
+        => _backgroundTransform.DOAnchorPos(_bottomPosition, 1f).SetEase(Ease.OutBack)
+        .OnComplete(() => ShowSymbol(gridContent));
+
+    public void ChangeSymbol(Action doAfter)
+        => _backgroundTransform.DOAnchorPos(_bottomPosition, 0.5f).SetEase(Ease.OutBack)
+        .OnComplete(() => HideAndDoAction(doAfter));
+
+    private void HideAndDoAction(Action doAfter)
+    {
+        HideImages();
+        doAfter();
+    }
 
     public void ShowSymbol(GridContent gridContent)
     {

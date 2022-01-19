@@ -4,6 +4,7 @@ using TMPro;
 public class MoveCounter : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI _amountDisplay;
+    [SerializeField] private TextMeshProUGUI _startAmountDisplay;
     [SerializeField] private LevelPropertyHandler _levelPropertyHandler;
 
     int _moveAmount;
@@ -13,6 +14,7 @@ public class MoveCounter : MonoBehaviour
     private void Awake()
     {
         _moveAmount = _levelPropertyHandler.AmountOfMoves();
+        _startAmountDisplay.text = _moveAmount.ToString();
         UpdateText();
     }
 

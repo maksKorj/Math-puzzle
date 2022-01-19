@@ -1,5 +1,6 @@
 using UnityEngine;
 using LevelBuilder;
+using System;
 
 public class UnitGrid : MonoBehaviour
 {
@@ -14,7 +15,8 @@ public class UnitGrid : MonoBehaviour
     private GridContent _currentGridContent;
     private bool _movingThrougGrid;
 
-    public bool CanShoot { get; set; } = true;
+    public bool CanShoot { get; private set; } = true;
+    public event Action OnStartMoving;
 
     private void Awake()
     {
@@ -96,6 +98,8 @@ public class UnitGrid : MonoBehaviour
 
     private void MoveHorizontal(Vector2Int startGridPosition, int endX, bool blowUpInEnd = false)
     {
+        OnStartMoving?.Invoke();
+
         _moveCounter.RemoveMove();
         _currentGridContent = _symbolGiver.GetNextSymbol();
 
@@ -138,6 +142,8 @@ public class UnitGrid : MonoBehaviour
 
     private void MoveVertical(Vector2Int startGridPosition, int endY, bool blowUpInEnd = false)
     {
+        OnStartMoving?.Invoke();
+
         _moveCounter.RemoveMove();
         _currentGridContent = _symbolGiver.GetNextSymbol();
 
@@ -164,4 +170,7 @@ public class UnitGrid : MonoBehaviour
     }
 
     private void EndGivingSymbol() => CanShoot = true;
+
+    public void BlockShoting() => CanShoot = false;
+    public void UnBlockShoting() => EndGivingSymbol();
 }
