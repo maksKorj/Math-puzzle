@@ -17,7 +17,7 @@ namespace Boosters
         public int CoinPrice => _coinPrice;
         public int GemPrice => _gemPrice;
         public bool IsImmediatelyApply => _isImmediatelyApply;
-        public bool IsAvailable(int level) => _availableFromLevel >= level;
+        public bool IsAvailable(int level) => level >= _availableFromLevel;
 
         public abstract void ApplyBooster();
         public abstract void Initialize();

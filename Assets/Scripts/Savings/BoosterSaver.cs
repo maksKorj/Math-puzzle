@@ -88,7 +88,7 @@ public class SavingBoosterItem
 [Serializable]
 public class BoosterSlot
 {
-    public bool HasBooster => BoosterType != null && Amount > 0;
+    public bool HasBooster => BoosterType != null;
     public Type BoosterType { get; private set; }
     public int Amount { get; private set; }
 

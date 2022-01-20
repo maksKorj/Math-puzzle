@@ -15,6 +15,7 @@ namespace Boosters
         private Action ButtonClick;
 
         public Type BoosterType => _boosterItem.BoosterType;
+        public BoosterItem BoosterItem => _boosterItem;
 
         private void Awake()
         {
@@ -68,6 +69,9 @@ namespace Boosters
             if (_boosterItem != null)
                 Debug.Log("Shop");
         }
+
+        public void UpdateAmount()
+            => _boosterButtonAmount.UpdateAmount(_boosterItem.Amount);
     }
 }
 

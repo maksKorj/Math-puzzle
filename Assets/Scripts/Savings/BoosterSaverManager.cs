@@ -12,11 +12,15 @@ public class BoosterSaverManager : MonoBehaviour
 
     public List<BoosterItem> TakenSlotItems { get; private set; } = new List<BoosterItem>();
     public List<BoosterItem> AvailableBoosterItems { get; private set; } = new List<BoosterItem>();
+    public List<BoosterItem> BoosterItems => _boosterItems;
 
     private void Awake()
     {
         SetSingeltone();
         LoadSave();
+
+        SetBoosterSlots();
+        SetAvailableBoosterItems(PlayerSaver.LoadPlayerLevel());
     }
 
     #region Singeltone
@@ -84,7 +88,7 @@ public class BoosterSaverManager : MonoBehaviour
     {
         for (int i = 0; i < _boosterItems.Count; i++)
         {
-            if (boosterType == _boosterItems[i].GetType())
+            if (boosterType == _boosterItems[i].BoosterType)
                 return _boosterItems[i];
         }
 
@@ -134,6 +138,19 @@ public class BoosterSaverManager : MonoBehaviour
         }
 
         return false;
+    }
+
+    public List<BoosterItem> GetAvailableBoosterItems(int level)
+    {
+        var list = new List<BoosterItem>();
+
+        for (int i = 0; i < _boosterItems.Count; i++)
+        {
+            if (_boosterItems[i].Booster.IsAvailable(level))
+                list.Add(_boosterItems[i]);
+        }
+
+        return list;
     }
     #endregion
 

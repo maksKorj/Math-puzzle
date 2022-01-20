@@ -2,8 +2,8 @@ using UnityEngine;
 
 public class LosePopUp : MonoBehaviour
 {
-    [SerializeField] private GameObject _childe;
-    [SerializeField] private GameObject _continueBlock;
+    [SerializeField] private GameObject _mainLosePopUp;
+    [SerializeField] private ContinuePopUp _continuePopUp;
     [SerializeField] private EquationVisualizer _equationVisualizer;
     [SerializeField] private MoveCounter _moveCounter;
 
@@ -13,14 +13,14 @@ public class LosePopUp : MonoBehaviour
         _equationVisualizer.OnEndChecking += ShowContinuePopUp;
     }
 
-    private void ShowPopUp()
+    public void ShowPopUp()
     {
-        _childe.SetActive(true);
+        _mainLosePopUp.SetActive(true);
     }
 
     private void ShowContinuePopUp()
     {
         if (_moveCounter.IsRunOutMoves)
-            _continueBlock.SetActive(true);
+            _continuePopUp.ShowContinuePopUp(this);
     }
 }

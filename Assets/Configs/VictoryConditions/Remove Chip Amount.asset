@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e47c753674c55a6488a7d33a43250a45, type: 3}
   m_Name: Remove Chip Amount
   m_EditorClassIdentifier: 
-  _moveAmount: 2
-  _amountToWin: 20
+  _moveAmount: 1
+  _amountToWin: 3

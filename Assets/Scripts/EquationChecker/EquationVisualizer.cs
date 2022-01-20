@@ -9,8 +9,9 @@ public class EquationVisualizer : MonoBehaviour
     [SerializeField] private GridElement _gridElement;
     [SerializeField] private UnitGridAmountChecker _gridAmountChecker;
     [SerializeField] private VictoryConditionHandler[] _victoryConditionHandlers;
+    [SerializeField] private MultiplyEquationEffect _multiplyEquationEffect;
 
-    private WaitForSeconds _selectDelay, _hideDelay, _showDelay;
+    private WaitForSeconds _selectDelay, _hideDelay, _showDelay, _multiplyEffectDelay;
     private WaitWhile _victoryDisplayDelay;
     private EquationChecker _equationChecker;
     private VictoryConditionHandler _victoryConditionHandler;
@@ -26,6 +27,7 @@ public class EquationVisualizer : MonoBehaviour
         _hideDelay = new WaitForSeconds(_gridElement.HidingTime);
         _showDelay = new WaitForSeconds(_gridElement.ShowingTime);
         _victoryDisplayDelay = new WaitWhile(() => _victoryConditionHandler.IsPlaying == true);
+        _multiplyEffectDelay = new WaitForSeconds(_multiplyEquationEffect.EffectTime);
 
         _equationChecker = GetComponent<EquationChecker>();
     }
@@ -50,9 +52,12 @@ public class EquationVisualizer : MonoBehaviour
 
     private IEnumerator ShowEquation(Dictionary<int, List<GridElement>> equations)
     {
+        int amount = 0;
+
         for (int i = 0; i < equations.Count; i++)
         {
             Show(equations[i]);
+            amount++;
             yield return _selectDelay;
         }
 
@@ -66,6 +71,7 @@ public class EquationVisualizer : MonoBehaviour
             for (int i = 0; i < equations.Count; i++)
             {
                 Show(equations[i]);
+                amount++;
                 yield return _selectDelay;
             }
 
@@ -73,6 +79,12 @@ public class EquationVisualizer : MonoBehaviour
                 Hide(equations[i]);
 
             yield return _hideDelay;
+        }
+
+        if(amount > 1)
+        {
+            _multiplyEquationEffect.ShowEffect(amount);
+            yield return _multiplyEffectDelay;
         }
 
         StartCoroutine(EndShow());

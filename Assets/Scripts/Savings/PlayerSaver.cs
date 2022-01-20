@@ -6,6 +6,7 @@ public static class PlayerSaver
     private const string _playerCoinsPath = "PlayerCoins";
     private const string _playerDiamondPath = "DiamondPath";
     private const string _playerLifePath = "PlayerLife";
+    private const string _levelCompletePath = "LevelComplete";
 
     public static int LoadPlayerLevel() { int level = LoadSave(_playerLevelPath); return level == -1 ? 1 : level; }
     public static void SavePlayerLevel(int level) => PlayerPrefs.SetInt(_playerLevelPath, level);
@@ -17,6 +18,9 @@ public static class PlayerSaver
 
     public static int LoadPlayerLives() { int lives = LoadSave(_playerLifePath); return lives == -1 ? 3 : lives; }
     public static void SavePlayerLife(int lives) => PlayerPrefs.SetInt(_playerLifePath, lives);
+
+    public static int LoadCompleteLevelNumber() { int amount = LoadSave(_levelCompletePath); return amount == -1 ? 0 : amount; }
+    public static void SaveCompleteLevelNumber(int amount) => PlayerPrefs.SetInt(_levelCompletePath, amount);
 
     private static int LoadSave(string path)
     {
