@@ -3,18 +3,17 @@ using UnityEngine;
 public class MainShop : MonoBehaviour
 {
     [SerializeField] private GameObject _childe;
-    [SerializeField] private GameObject _wallet;
+    [SerializeField] protected MainWallet _wallet;
 
     public void OpenShop()
     {
-        if(_childe.activeInHierarchy == false)
-            SetActive(true);
+        _childe.SetActive(true);
+        _wallet.HideOpenButtons();
     }
-    public void CloseShop() => SetActive(false);
 
-    private void SetActive(bool isActive)
+    public void CloseShop()
     {
-        _childe.SetActive(isActive);
-        _wallet.SetActive(isActive);
+        _childe.SetActive(false);
+        _wallet.ShowOpenButtons();
     }
 }

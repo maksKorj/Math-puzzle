@@ -12,15 +12,13 @@ namespace Boosters
 
         private void Start()
         {
-            if(BoosterSaverManager.Instance.TakenSlotItems.Count > 0)
+            for (int i = 0; i < BoosterSaverManager.Instance.SlotItems.Count; i++)
             {
-                for (int i = 0; i < BoosterSaverManager.Instance.TakenSlotItems.Count; i++)
-                    _boosterButtons[i].AddBooster(BoosterSaverManager.Instance.TakenSlotItems[i]);
-            }
-
-            int startIndex = Mathf.Max(0, BoosterSaverManager.Instance.TakenSlotItems.Count - 1);
-            for(int i = startIndex; i < _boosterButtons.Length; i++)
-                _boosterButtons[i].SetButtonClickToShop();
+                if(BoosterSaverManager.Instance.SlotItems[i] != null)
+                    _boosterButtons[i].AddBooster(BoosterSaverManager.Instance.SlotItems[i]);
+                else
+                    _boosterButtons[i].SetButtonClickToShop();
+            }   
 
             _unitGrid.OnStartMoving += () => SetButtonInteractable(false);
             _symbolGiverVisual.OnEndGivingSymbol += () => SetButtonInteractable(true);
@@ -33,6 +31,8 @@ namespace Boosters
                 if (_boosterButtons[i].BoosterType == boosterType)
                     _boosterButtons[i].GetBoosterBack();
             }
+
+            SetButtonInteractable(true);
         }
 
         public MainScreen GetGuideScreen(Type boosterType)

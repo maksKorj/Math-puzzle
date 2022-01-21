@@ -4,18 +4,17 @@ using UnityEngine.UI;
 
 namespace Boosters
 {
-    public class BoosterButton : MonoBehaviour
+    public class BoosterButton : BoosterButtonElement
     {
         [SerializeField] private Image _image;
         [SerializeField] private BoosterButtonAmount _boosterButtonAmount;
         [SerializeField] private BoosterManager _boosterManager;
 
-        private BoosterItem _boosterItem;
         private Button _button;
         private Action ButtonClick;
+        private BoosterShopPopUp _boosterShopPopUp;
 
-        public Type BoosterType => _boosterItem.BoosterType;
-        public BoosterItem BoosterItem => _boosterItem;
+        public Type BoosterType => BoosterItem.BoosterType;
 
         private void Awake()
         {
@@ -24,13 +23,16 @@ namespace Boosters
 
         public void AddBooster(BoosterItem boosterItem)
         {
-            _boosterItem = boosterItem;
-            _boosterItem.Booster.Initialize();
-            _image.sprite = _boosterItem.Booster.BoosterImage;
+            BoosterItem = boosterItem;
+            BoosterItem.Booster.Initialize();
+            _image.sprite = BoosterItem.Booster.BoosterImage;
 
-            _boosterButtonAmount.ShowAmount(_boosterItem.Amount);
+            _boosterButtonAmount.ShowAmount(BoosterItem.Amount);
 
-            ButtonClick = UseBooster;
+            if (BoosterItem.Amount > 0)
+                ButtonClick = UseBooster;
+            else
+                ButtonClick = OpenShop;
         }
 
         public void SetButtonClickToShop() => ButtonClick = OpenShop;
@@ -39,16 +41,16 @@ namespace Boosters
 
         public void UseBooster()
         {
-            _boosterItem.RemoveOne();
+            BoosterItem.RemoveOne();
 
-            if (_boosterItem.Booster.IsImmediatelyApply == false)
+            if (BoosterItem.Booster.IsImmediatelyApply == false)
                 _boosterManager.SetButtonInteractable(false);
 
-            _boosterButtonAmount.UpdateAmount(_boosterItem.Amount);
+            _boosterButtonAmount.UpdateAmount(BoosterItem.Amount);
 
-            _boosterItem.Booster.ApplyBooster();
+            BoosterItem.Booster.ApplyBooster();
 
-            if(_boosterItem.Amount <= 0)
+            if(BoosterItem.Amount <= 0)
             {
                 ButtonClick = OpenShop;
             }
@@ -56,22 +58,32 @@ namespace Boosters
 
         public void GetBoosterBack()
         {
-            _boosterItem.AddAmount();
-            _boosterButtonAmount.UpdateAmount(_boosterItem.Amount);
-
-            SetInteractable(true);
+            BoosterItem.AddAmount();
+            _boosterButtonAmount.UpdateAmount(BoosterItem.Amount);
         }
 
         public void SetInteractable(bool interactable) => _button.interactable = interactable;
 
         public void OpenShop()
         {
-            if (_boosterItem != null)
-                Debug.Log("Shop");
+            if (BoosterItem != null)
+            {
+                if (_boosterShopPopUp == null)
+                    _boosterShopPopUp = FindObjectOfType<BoosterShopPopUp>();
+
+                _boosterShopPopUp.OpenShop(this);
+            }
         }
 
-        public void UpdateAmount()
-            => _boosterButtonAmount.UpdateAmount(_boosterItem.Amount);
+        public override void UpdateAmount()
+        {
+            _boosterButtonAmount.UpdateAmount(BoosterItem.Amount);
+
+            if (BoosterItem.Amount > 0)
+                ButtonClick = UseBooster;
+            else
+                ButtonClick = OpenShop;
+        }
     }
 }
 

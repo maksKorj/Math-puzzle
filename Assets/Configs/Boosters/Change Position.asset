@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Change Position
   m_EditorClassIdentifier: 
   _boosterImage: {fileID: -1164580599559226724, guid: 94771974db17e4046bf61d62bbffb28f, type: 3}
-  _name: 
+  _name: Change position
   _coinPrice: 150
   _gemPrice: 1
   _isImmediatelyApply: 0

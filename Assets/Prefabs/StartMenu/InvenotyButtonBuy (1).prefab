@@ -426,8 +426,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: BoosterShopButton, Assembly-CSharp
+      - m_Target: {fileID: 1587602097522477945}
+        m_TargetAssemblyTypeName: StartMenu.InventoryShopButton, Assembly-CSharp
         m_MethodName: Buy
         m_Mode: 1
         m_Arguments:

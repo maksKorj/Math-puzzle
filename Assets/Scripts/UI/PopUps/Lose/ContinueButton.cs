@@ -17,7 +17,7 @@ public class ContinueButton : MonoBehaviour
         }
         else
         {
-            Debug.Log("Open Shop");
+            FindObjectOfType<MainShop>().OpenShop();
         }
     }
     

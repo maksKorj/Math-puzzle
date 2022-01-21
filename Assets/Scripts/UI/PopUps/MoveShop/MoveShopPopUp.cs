@@ -1,8 +1,9 @@
 using UnityEngine;
 
-public class MoveShopPopUp : ShopPopUp
+public class MoveShopPopUp : MonoBehaviour
 {
     [SerializeField] private MoveShopButton[] _moveShopButtons;
+    [SerializeField] private MainWallet _wallet;
 
     private void Awake()
     {
@@ -10,5 +11,17 @@ public class MoveShopPopUp : ShopPopUp
             _moveShopButtons[i].Initialize();
 
         gameObject.SetActive(false);
+    }
+
+    public void OpenShop()
+    {
+        gameObject.SetActive(true);
+        _wallet.ShowWallet();
+    }
+
+    public void CloseShop()
+    {
+        gameObject.SetActive(false);
+        _wallet.HideWallet();
     }
 }

@@ -10,7 +10,7 @@ public class BoosterSaverManager : MonoBehaviour
     private BoosterSlot[] _boosterSlots = new BoosterSlot[4];
     private List<BoosterItem> _boosterItems = new List<BoosterItem>();
 
-    public List<BoosterItem> TakenSlotItems { get; private set; } = new List<BoosterItem>();
+    public List<BoosterItem> SlotItems { get; private set; } = new List<BoosterItem>();
     public List<BoosterItem> AvailableBoosterItems { get; private set; } = new List<BoosterItem>();
     public List<BoosterItem> BoosterItems => _boosterItems;
 
@@ -41,6 +41,7 @@ public class BoosterSaverManager : MonoBehaviour
 
     private void LoadSave()
     {
+        //BoosterSaver.DeleteBoosters();
         var savingBoosterHandler = BoosterSaver.LoadBoosters();
 
         if (savingBoosterHandler == null)
@@ -107,12 +108,14 @@ public class BoosterSaverManager : MonoBehaviour
 
     private void SetBoosterSlots()
     {
-        TakenSlotItems.Clear();
+        SlotItems.Clear();
 
         for(int i = 0; i < _boosterSlots.Length; i++)
         {
             if (_boosterSlots[i].HasBooster)
-                TakenSlotItems.Add(GetBoosterItem(_boosterSlots[i].BoosterType));
+                SlotItems.Add(GetBoosterItem(_boosterSlots[i].BoosterType));
+            else
+                SlotItems.Add(null);
         }
     }
     #endregion

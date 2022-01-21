@@ -4,6 +4,7 @@ using TMPro;
 public abstract class Wallet : MonoBehaviour
 {
     [SerializeField] protected TextMeshProUGUI _textDisplay;
+    [SerializeField] private GameObject _openButton;
 
     private int _amount = -1;
     protected int Amount
@@ -53,4 +54,7 @@ public abstract class Wallet : MonoBehaviour
 
         return Amount >= amount;
     }
+
+    public void ShowOpenButton() => _openButton.SetActive(true);
+    public void HideOpenButton() => _openButton.SetActive(false);
 }

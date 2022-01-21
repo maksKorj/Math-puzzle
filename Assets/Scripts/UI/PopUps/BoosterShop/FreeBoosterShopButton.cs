@@ -1,4 +1,3 @@
-using Boosters;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -7,17 +6,17 @@ public class FreeBoosterShopButton : FreeButton
     [SerializeField] private Image _image;
     [SerializeField] private int _boosterAmount;
 
-    private BoosterButton _boosterButton;
+    private BoosterButtonElement _boosterButtonElement;
 
-    public void UpdeteUi(BoosterButton boosterButton)
+    public void UpdeteUi(BoosterButtonElement boosterButtonElement)
     {
-        _boosterButton = boosterButton;
-        _image.sprite = _boosterButton.BoosterItem.Booster.BoosterImage;
+        _boosterButtonElement = boosterButtonElement;
+        _image.sprite = _boosterButtonElement.BoosterItem.Booster.BoosterImage;
     }
 
     protected override void Give()
     {
-        _boosterButton.BoosterItem.AddAmount(_boosterAmount);
-        _boosterButton.UpdateAmount();
+        _boosterButtonElement.BoosterItem.AddAmount(_boosterAmount);
+        _boosterButtonElement.UpdateAmount();
     }
 }

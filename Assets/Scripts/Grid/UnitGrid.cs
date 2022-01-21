@@ -17,6 +17,7 @@ public class UnitGrid : MonoBehaviour
 
     public bool CanShoot { get; private set; } = true;
     public event Action OnStartMoving;
+    public event Action OnEndMovingThroughGrid;
 
     private void Awake()
     {
@@ -162,6 +163,7 @@ public class UnitGrid : MonoBehaviour
         {
             CanShoot = true;
             _symbolGiver.SetCharacter();
+            OnEndMovingThroughGrid?.Invoke();
             return;
         }
 

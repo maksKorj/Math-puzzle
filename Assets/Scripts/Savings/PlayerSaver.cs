@@ -16,7 +16,7 @@ public static class PlayerSaver
     public static int LoadPlayerDiamonds() { int diamonds = LoadSave(_playerDiamondPath); return diamonds == -1 ? 0 : diamonds; }
     public static void SavePlayerDiamonds(int diamonds) => PlayerPrefs.SetInt(_playerDiamondPath, diamonds);
 
-    public static int LoadPlayerLives() { int lives = LoadSave(_playerLifePath); return lives == -1 ? 3 : lives; }
+    public static int LoadPlayerLives() { int lives = LoadSave(_playerLifePath); return lives == -1 ? 5 : lives; }
     public static void SavePlayerLife(int lives) => PlayerPrefs.SetInt(_playerLifePath, lives);
 
     public static int LoadCompleteLevelNumber() { int amount = LoadSave(_levelCompletePath); return amount == -1 ? 0 : amount; }

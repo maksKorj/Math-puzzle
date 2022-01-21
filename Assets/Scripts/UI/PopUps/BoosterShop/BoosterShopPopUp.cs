@@ -1,26 +1,20 @@
-using Boosters;
+using StartMenu.Inventory;
 using UnityEngine;
 
-public class BoosterShopPopUp : ShopPopUp
+public class BoosterShopPopUp : InventoryShopPopUp
 {
-    [SerializeField] private BoosterShopButton[] _boosterShopButtons;
-    [SerializeField] private FreeBoosterShopButton _freeBoosterShopButton;
+    [SerializeField] private MainWallet _wallet;
 
-    private void Awake()
+    protected override void CloseShop()
     {
-        for (int i = 0; i < _boosterShopButtons.Length; i++)
-            _boosterShopButtons[i].Initialize();
-
-        gameObject.SetActive(false);
+        base.CloseShop();
+        _wallet.HideWallet();
     }
 
-    public void OpenShop(BoosterButton button)
+    protected override void OpenShop()
     {
-        for (int i = 0; i < _boosterShopButtons.Length; i++)
-            _boosterShopButtons[i].UpdateButton(button);
-
-        _freeBoosterShopButton.UpdeteUi(button);
-
-        OpenShop();
+        base.OpenShop();
+        _wallet.ShowWallet();
+        
     }
 }
