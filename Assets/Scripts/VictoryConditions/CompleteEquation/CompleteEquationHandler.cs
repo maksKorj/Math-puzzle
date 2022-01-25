@@ -48,7 +48,7 @@ public class CompleteEquationHandler : VictoryConditionHandler
     protected override void StartUpdateUi(int amount)
     {
         _currentAmount = 0;
-        _startAmountDisplay.text = $"{amount}";
+        //_startAmountDisplay.text = $"{amount}";
         _gameAmountDisplay.text = "0";
     }
 }

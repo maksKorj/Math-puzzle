@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public abstract class VictoryConditionHandler : ClearFieldHandler
 {
-    [SerializeField] protected TextMeshProUGUI _startAmountDisplay;
+    //[SerializeField] protected TextMeshProUGUI _startAmountDisplay;
     [SerializeField] protected TextMeshProUGUI _gameAmountDisplay;
     [SerializeField] protected Image _fillImage;
 

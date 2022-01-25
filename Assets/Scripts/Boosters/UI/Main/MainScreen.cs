@@ -60,7 +60,7 @@ namespace Boosters
         public virtual void Apply()
         {
             _mainScreenProperty.UnitGrid.BlockShoting();
-            gameObject.SetActive(true);
+            _panel.SetActive(true);
             _mainScreenProperty.GridAnimation.SelectAll();
         }
 

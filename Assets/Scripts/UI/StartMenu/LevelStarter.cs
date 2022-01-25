@@ -10,11 +10,13 @@ namespace StartMenu
         [SerializeField] private Lives _lives;
         [SerializeField] private BoosterSelector _boosterSelector;
         [SerializeField] private LifeShopPopUp _lifeShopPopUp;
+        [SerializeField] private TabletScaler _tabletScaler;
 
         private string _levelName;
 
         private void Awake()
         {
+            _tabletScaler.CheckResolution();
             _levelName = $"Level {PlayerSaver.LoadPlayerLevel()}";
             _levelDisplay.text = _levelName;
         }

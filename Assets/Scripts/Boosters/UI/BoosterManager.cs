@@ -29,7 +29,10 @@ namespace Boosters
             for (int i = 0; i < _boosterButtons.Length; i++)
             {
                 if (_boosterButtons[i].BoosterType == boosterType)
+                {
                     _boosterButtons[i].GetBoosterBack();
+                    break;
+                }   
             }
 
             SetButtonInteractable(true);

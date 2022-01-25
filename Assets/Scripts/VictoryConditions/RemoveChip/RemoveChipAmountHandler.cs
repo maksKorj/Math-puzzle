@@ -31,7 +31,7 @@ public class RemoveChipAmountHandler : VictoryConditionHandler
     protected override void StartUpdateUi(int amount)
     {
         _currentAmount = 0;
-        _startAmountDisplay.text = $"{_currentAmount} / {amount}";
+        //_startAmountDisplay.text = $"{_currentAmount} / {amount}";
         _gameAmountDisplay.text = $"{_currentAmount} / {amount}";
     }
 }

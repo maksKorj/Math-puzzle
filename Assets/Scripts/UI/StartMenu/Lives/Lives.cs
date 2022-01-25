@@ -14,7 +14,7 @@ namespace StartMenu
 
         private int _livesAmount;
         private bool _canCheckPause;
-        private TimeSpan _timeToCompleteOneHeart = new TimeSpan(1, 0, 0);
+        private TimeSpan _timeToCompleteOneHeart = new TimeSpan(59, 59, 0);
         private TimeSpan RemainingTime => _timeToCompleteOneHeart - _lifeTimer.RemainingTimeToGiveLife;
 
         public bool HasLives => _livesAmount > 0;
@@ -24,6 +24,13 @@ namespace StartMenu
         public void ShowAndRemoveLife()
         {
             gameObject.SetActive(true);
+            StartCoroutine(WaitAndUpdate());
+        }
+
+        //ToDo
+        private IEnumerator WaitAndUpdate()
+        {
+            yield return new WaitForSeconds(0.1f);
             RemoveLife();
         }
 

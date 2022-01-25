@@ -6,14 +6,9 @@ namespace StartMenu.BoosterUi
     public class BoosterSelectorItem : MonoBehaviour
     {
         [SerializeField] private BoosterSelectorPopUp _boosterSelectorPopUp;
+        [SerializeField] private Image _image;
 
         private BoosterItem _boosterItem;
-        private Image _image;
-
-        private void Awake()
-        {
-            _image = GetComponent<Image>();
-        }
 
         public void Hide() => gameObject.SetActive(false);
 
