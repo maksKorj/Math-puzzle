@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1d40350bf482d6438b80d1e27ad38e8, type: 3}
   m_Name: Change Symbol Giver
   m_EditorClassIdentifier: 
-  _boosterImage: {fileID: 1114473285259995243, guid: 94771974db17e4046bf61d62bbffb28f, type: 3}
+  _boosterImage: {fileID: 21300000, guid: 59dc8e9d2c2041548b26fdbceb1a94cd, type: 3}
   _name: Change symbol
   _coinPrice: 150
   _gemPrice: 1

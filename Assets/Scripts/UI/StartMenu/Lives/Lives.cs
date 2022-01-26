@@ -14,23 +14,24 @@ namespace StartMenu
 
         private int _livesAmount;
         private bool _canCheckPause;
-        private TimeSpan _timeToCompleteOneHeart = new TimeSpan(59, 59, 0);
+        private bool _updateOnStart = true;
+        private TimeSpan _timeToCompleteOneHeart = new TimeSpan(0, 45, 0);
         private TimeSpan RemainingTime => _timeToCompleteOneHeart - _lifeTimer.RemainingTimeToGiveLife;
 
         public bool HasLives => _livesAmount > 0;
 
-        private void Start() => UpdateLife();
+        private void Start()
+        {
+            if(_updateOnStart)
+                UpdateLife();
+        }
 
         public void ShowAndRemoveLife()
         {
+            _updateOnStart = false;
             gameObject.SetActive(true);
-            StartCoroutine(WaitAndUpdate());
-        }
-
-        //ToDo
-        private IEnumerator WaitAndUpdate()
-        {
-            yield return new WaitForSeconds(0.1f);
+            
+            UpdateLife();
             RemoveLife();
         }
 

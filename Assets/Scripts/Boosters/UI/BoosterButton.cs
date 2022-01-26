@@ -25,6 +25,8 @@ namespace Boosters
         {
             BoosterItem = boosterItem;
             BoosterItem.Booster.Initialize();
+
+            _image.enabled = true;
             _image.sprite = BoosterItem.Booster.BoosterImage;
 
             _boosterButtonAmount.ShowAmount(BoosterItem.Amount);
@@ -59,7 +61,7 @@ namespace Boosters
         public void GetBoosterBack()
         {
             BoosterItem.AddAmount();
-            _boosterButtonAmount.UpdateAmount(BoosterItem.Amount);
+            UpdateAmount();
         }
 
         public void SetInteractable(bool interactable) => _button.interactable = interactable;

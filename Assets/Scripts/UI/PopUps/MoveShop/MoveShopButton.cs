@@ -33,6 +33,9 @@ public class MoveShopButton : MonoBehaviour
         if (_mainShop == null)
             _mainShop = FindObjectOfType<MainShop>();
 
-        _mainShop.OpenShop();
+        if (_wallet is CoinWallet)
+            _mainShop.OpenShop();
+        else
+            _mainShop.OpenGemTab();
     }
 }

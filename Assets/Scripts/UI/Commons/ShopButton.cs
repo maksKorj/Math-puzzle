@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public abstract class ShopButton : MonoBehaviour
 {
-    [SerializeField] private Wallet _wallet;
+    [SerializeField] protected Wallet _wallet;
     [SerializeField] private Image _image;
     [SerializeField] private TextMeshProUGUI _boosterAmountDisplay;
     [SerializeField] private TextMeshProUGUI _priceDisplay;
@@ -73,5 +73,14 @@ public abstract class ShopButton : MonoBehaviour
         }
     }
 
-    protected abstract void OpenMainShop();
+    protected void OpenMainShop()
+    {
+        if (_mainShop == null)
+            _mainShop = FindObjectOfType<MainShop>();
+
+        if (_wallet is CoinWallet)
+            _mainShop.OpenShop();
+        else
+            _mainShop.OpenGemTab();
+    }
 }

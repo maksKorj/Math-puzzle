@@ -74,8 +74,7 @@ namespace Boosters
 
         protected void Hide()
         {
-            gameObject.SetActive(false);
-            _panel.SetActive(true);
+            _panel.SetActive(false);
             _canClick = true;
         }
 

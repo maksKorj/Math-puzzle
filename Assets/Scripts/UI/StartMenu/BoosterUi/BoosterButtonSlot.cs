@@ -15,6 +15,7 @@ namespace StartMenu.BoosterUi
 
         public void SetBooster(BoosterItem boosterItem)
         {
+            _image.enabled = true;
             _image.sprite = boosterItem.Booster.BoosterImage;
         }
 

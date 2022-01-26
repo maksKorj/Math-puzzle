@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 24f93e183b3cfac4bb70e3e31ae42f6e, type: 3}
   m_Name: Remove Chip
   m_EditorClassIdentifier: 
-  _boosterImage: {fileID: 2069014617831714248, guid: 94771974db17e4046bf61d62bbffb28f, type: 3}
-  _name: Remove
+  _boosterImage: {fileID: 21300000, guid: fdfd8e589c9a34816ba74d0822c211b0, type: 3}
+  _name: Hammer
   _coinPrice: 200
   _gemPrice: 2
   _isImmediatelyApply: 0
