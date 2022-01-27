@@ -3,14 +3,16 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public abstract class ShopButton : MonoBehaviour
+public class ShopButton : MonoBehaviour
 {
     [SerializeField] protected Wallet _wallet;
     [SerializeField] private Image _image;
     [SerializeField] private TextMeshProUGUI _boosterAmountDisplay;
     [SerializeField] private TextMeshProUGUI _priceDisplay;
+    [Header("Sale item")]
     [SerializeField] private TextMeshProUGUI _priceSaleDisplay;
     [SerializeField] private TextMeshProUGUI _saleDisplay;
+    [SerializeField] private LabelAnimation _labelAnimation;
     [Header("Price/Amount")]
     [SerializeField] private int _boosterAmount;
 
@@ -39,6 +41,8 @@ public abstract class ShopButton : MonoBehaviour
             _priceSaleDisplay.text = totalPrice.ToString();
             _saleDisplay.text = $"<s>{price}";
 
+            _labelAnimation.PlayAnimation();
+
             return totalPrice;
         }
 
@@ -56,6 +60,9 @@ public abstract class ShopButton : MonoBehaviour
             totalPrice = Mathf.RoundToInt(price * _boosterAmount - price * 5);
             _priceSaleDisplay.text = totalPrice.ToString();
             _saleDisplay.text = $"<s>{price * _boosterAmount}";
+
+            _labelAnimation.PlayAnimation();
+
             return totalPrice;
         }
 
@@ -84,7 +91,7 @@ public abstract class ShopButton : MonoBehaviour
         }
     }
 
-    protected void OpenMainShop()
+    private void OpenMainShop()
     {
         if (_mainShop == null)
             _mainShop = FindObjectOfType<MainShop>();
@@ -93,5 +100,11 @@ public abstract class ShopButton : MonoBehaviour
             _mainShop.OpenShop();
         else
             _mainShop.OpenGemTab();
+    }
+
+    public void StopLabelAnimation()
+    {
+        if(_labelAnimation.gameObject.activeInHierarchy)
+            _labelAnimation.StopAnimation();
     }
 }

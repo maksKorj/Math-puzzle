@@ -15,6 +15,6 @@ MonoBehaviour:
   _boosterImage: {fileID: 21300000, guid: 8e601a51f9c66d5488030f298908526c, type: 3}
   _name: Change position
   _coinPrice: 150
-  _gemPrice: 1
+  _gemPriceForOne: 0.2
   _isImmediatelyApply: 0
   _availableFromLevel: 0
