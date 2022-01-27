@@ -31,6 +31,13 @@ public class AdsInterstitial : MonoBehaviour
 
     public void ShowAd()
     {
+        if(StateSaver.IsAdBlockTurnOn())
+        {
+            Debug.Log("AdBlock is turn on");
+            OnAdsClosed?.Invoke();
+            return;
+        }
+
         _count++;
 
         Debug.Log("Count: " + _count + " Total time: " + (DateTime.Now - _startDate));

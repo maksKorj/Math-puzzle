@@ -11,6 +11,7 @@ namespace StartMenu
         [SerializeField] private TextMeshProUGUI _livesDisplay;
         [SerializeField] private TimerSaver _timerSaver;
         [SerializeField] private LifeTimer _lifeTimer;
+        [SerializeField] private GameObject _inifiniteSign;
 
         private int _livesAmount;
         private bool _canCheckPause;
@@ -28,6 +29,9 @@ namespace StartMenu
 
         public void ShowAndRemoveLife()
         {
+            if (StateSaver.IsAdBlockTurnOn())
+                return;
+
             _updateOnStart = false;
             gameObject.SetActive(true);
             
@@ -37,10 +41,23 @@ namespace StartMenu
 
         public void UpdateLife()
         {
+            if(StateSaver.IsAdBlockTurnOn())
+            {
+                ShowIniniteSign();
+                return;
+            }
+
             _lifeTimer.OnTimerEnd += AddLife;
             _livesAmount = PlayerSaver.LoadPlayerLives();
             SetTimer();
             StartCoroutine(WaitAndProcess());
+        }
+
+        public void ShowIniniteSign()
+        {
+            _lifeTimer.StopTimer();
+            _livesDisplay.gameObject.SetActive(false);
+            _inifiniteSign.SetActive(true);
         }
 
         private void SetTimer()
