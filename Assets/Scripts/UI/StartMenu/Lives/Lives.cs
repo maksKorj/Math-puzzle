@@ -39,7 +39,6 @@ namespace StartMenu
         {
             _lifeTimer.OnTimerEnd += AddLife;
             _livesAmount = PlayerSaver.LoadPlayerLives();
-            
             SetTimer();
             StartCoroutine(WaitAndProcess());
         }

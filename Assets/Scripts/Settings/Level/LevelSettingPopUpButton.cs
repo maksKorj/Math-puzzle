@@ -1,0 +1,20 @@
+using UnityEngine;
+using StartMenu;
+
+public class LevelSettingPopUpButton : MonoBehaviour
+{
+    [SerializeField] private LevelLoader _levelLoader;
+    [SerializeField] private Lives _lives;
+
+    public void Quit()
+    {
+        _lives.ShowAndRemoveLife();
+        _levelLoader.LoadStartMenu();
+    }
+
+    public void Restart()
+    {
+        _lives.ShowAndRemoveLife();
+        _levelLoader.LoadStartMenu();
+    }
+}

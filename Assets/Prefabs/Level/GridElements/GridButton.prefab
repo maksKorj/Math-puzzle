@@ -338,7 +338,7 @@ MonoBehaviour:
   _backgroundImage: {fileID: 8416644584522450446}
   _mainBackground: {fileID: 3910632566187712007}
   _particleSystem: {fileID: 4223471458978792127}
-  _selectColor: {r: 0.023529412, g: 1, b: 0.5529412, a: 1}
+  _selectColor: {r: 1, g: 0.87076926, b: 0.39999998, a: 1}
   _animationTime: 1
   _rightBorder: {fileID: 2771910055316094445}
   _topBorder: {fileID: 5499677398540248318}

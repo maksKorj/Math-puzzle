@@ -9,6 +9,8 @@ public class PopUpAnimation : MonoBehaviour
 
     protected RectTransform _rectTransform;
 
+    public bool IsOpen => gameObject.activeInHierarchy;
+
     public void Open()
     {
         EnableObject();
