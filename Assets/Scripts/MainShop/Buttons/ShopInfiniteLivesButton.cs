@@ -19,7 +19,7 @@ public class ShopInfiniteLivesButton : MonoBehaviour
     public void Buy()
     {
         StateSaver.SetInfiniteLives();
-        _lives.ShowIniniteSign();   
+        _lives.ShowInfiniteSign();   
     }
 
     public void OnPurchaseFailed(Product product, PurchaseFailureReason purchaseFailureReason)

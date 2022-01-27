@@ -16,7 +16,7 @@ namespace StartMenu
         private int _livesAmount;
         private bool _canCheckPause;
         private bool _updateOnStart = true;
-        private TimeSpan _timeToCompleteOneHeart = new TimeSpan(0, 45, 0);
+        private TimeSpan _timeToCompleteOneHeart = new TimeSpan(0, 30, 0);
         private TimeSpan RemainingTime => _timeToCompleteOneHeart - _lifeTimer.RemainingTimeToGiveLife;
 
         public bool HasLives => _livesAmount > 0;
@@ -43,7 +43,7 @@ namespace StartMenu
         {
             if(StateSaver.IsAdBlockTurnOn())
             {
-                ShowIniniteSign();
+                ShowInfiniteSign();
                 return;
             }
 
@@ -53,7 +53,7 @@ namespace StartMenu
             StartCoroutine(WaitAndProcess());
         }
 
-        public void ShowIniniteSign()
+        public void ShowInfiniteSign()
         {
             _lifeTimer.StopTimer();
             _livesDisplay.gameObject.SetActive(false);
