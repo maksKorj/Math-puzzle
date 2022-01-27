@@ -25,20 +25,18 @@ public class LevelLoader : MonoBehaviour
     {
         _loadingSceneName = sceneName;
 
-        /*if (_currentSceneName.Equals(_level))
+        if (_currentSceneName.Equals(_level))
         {
-            //AdsController.Instance.AdsInterstitial.OnAdsClosed += PlayAnimationByName;
-            //AdsController.Instance.ShowInterstitialAds();
+            AdsController.Instance.AdsInterstitial.OnAdsClosed += PlayAnimationAndLoad;
+            AdsController.Instance.ShowInterstitialAds();
         }
         else
-            PlayAnimationByName();*/
-
-        PlayAnimationAndLoad();
+            PlayAnimationAndLoad();
     }
 
     private void PlayAnimationAndLoad()
     {
-        //AdsController.Instance.AdsInterstitial.OnAdsClosed -= PlayAnimationByName;
+        AdsController.Instance.AdsInterstitial.OnAdsClosed -= PlayAnimationAndLoad;
 
         _background.gameObject.SetActive(true);
         _background.DOFade(1, 1f).OnComplete(() => SceneManager.LoadScene(_loadingSceneName));

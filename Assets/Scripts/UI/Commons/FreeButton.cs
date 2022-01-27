@@ -4,7 +4,13 @@ public abstract class FreeButton : MonoBehaviour
 {
     public void GetFree()
     {
-        Debug.Log("Show Ads");
+        AdsController.Instance.AdsRewarded.OnFinishWatchingAds += Reward;
+        AdsController.Instance.ShowRewardedAds();
+    }
+
+    private void Reward()
+    {
+        AdsController.Instance.AdsRewarded.OnFinishWatchingAds -= Reward;
         Give();
     }
 

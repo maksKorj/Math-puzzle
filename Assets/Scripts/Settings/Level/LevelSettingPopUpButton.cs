@@ -15,6 +15,9 @@ public class LevelSettingPopUpButton : MonoBehaviour
     public void Restart()
     {
         _lives.ShowAndRemoveLife();
-        _levelLoader.LoadStartMenu();
+        if(_lives.HasLives)
+            _levelLoader.LoadLevel();
+        else
+            _levelLoader.LoadStartMenu();
     }
 }
