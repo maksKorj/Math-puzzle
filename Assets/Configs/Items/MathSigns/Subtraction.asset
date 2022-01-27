@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b83bc0ab4dae3b47bb33a4217db1da2, type: 3}
   m_Name: Subtraction
   m_EditorClassIdentifier: 
-  _backgroundSprite: {fileID: 21300000, guid: d4f32ed525fe3d849ad534c963b7f897, type: 3}
-  _sumbolSprite: {fileID: 8051134168378353487, guid: 406982d64916cfb498c7430c3bf1d1cf, type: 3}
-  _backgroundColor: {r: 0.14901961, g: 0.14901961, b: 0.14901961, a: 1}
-  _symbolColor: {r: 1, g: 1, b: 1, a: 1}
+  _backgroundSprite: {fileID: 21300000, guid: b592a642c87fe1e41b0232d31c7affc5, type: 3}
+  _sumbolSprite: {fileID: -2449591561013552763, guid: 1c915cb2d7c1e0049b199f59a5973cfd, type: 3}
+  _backgroundColor: {r: 1, g: 1, b: 1, a: 1}
+  _symbolColor: {r: 0.07450981, g: 0.6431373, b: 0.23137255, a: 1}

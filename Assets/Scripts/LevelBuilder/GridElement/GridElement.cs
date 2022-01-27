@@ -1,5 +1,6 @@
 using UnityEngine;
 using DG.Tweening;
+using UnityEngine.UI;
 
 namespace LevelBuilder
 {
@@ -8,6 +9,7 @@ namespace LevelBuilder
         [Header("GridElementImage")]
         [SerializeField] protected GridElementImage _contentImage;
         [SerializeField] protected GridElementImage _backgroundImage;
+        [SerializeField] private Image _mainBackground;
         
         [Header("Effects")]
         [SerializeField] private ParticleSystem _particleSystem;
@@ -89,6 +91,8 @@ namespace LevelBuilder
             _contentImage.RectTransform.localScale = Vector3.zero;
             _backgroundImage.RectTransform.localScale = Vector3.zero;
         }
+
+        public void SetBackground(Sprite sprite) => _mainBackground.sprite = sprite;
         #endregion
 
         public void SelectAtEquation()

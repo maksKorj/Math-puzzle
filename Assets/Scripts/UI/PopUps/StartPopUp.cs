@@ -4,7 +4,7 @@ using TMPro;
 public class StartPopUp : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI _startLevelDisplay, _gameLevelDisplay;
-
+    [SerializeField] private PopUpAnimation _popUpAnimation;
     [SerializeField] private LevelPropertyHandler _levelPropertyHandler;
     [SerializeField] private GridAnimation _gridAnimation;
 
@@ -22,9 +22,8 @@ public class StartPopUp : MonoBehaviour
 
     public void StartPlay()
     {
-        gameObject.SetActive(false);
+        _popUpAnimation.Close();
 
-        //Block shoot before animation
         _gridAnimation.ShowStartGridElements();
     }
 }

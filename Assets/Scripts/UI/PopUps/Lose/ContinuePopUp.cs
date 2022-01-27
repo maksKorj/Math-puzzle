@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class ContinuePopUp : MonoBehaviour
 {
-    [SerializeField] private MainWallet _wallet;
+    [SerializeField] private PopUpAnimationAditional _popUpAnimationAditional;
 
     private LosePopUp _losePop;
 
@@ -10,13 +10,12 @@ public class ContinuePopUp : MonoBehaviour
     {
         _losePop = losePopUp;
         gameObject.SetActive(true);
-        _wallet.ShowWallet();
+        _popUpAnimationAditional.Open();
     }
 
     public void HideContinueBlock()
     {
-        gameObject.SetActive(false);
-        _wallet.HideWallet();
+        _popUpAnimationAditional.Close();
     }
 
     public void GiveUp()

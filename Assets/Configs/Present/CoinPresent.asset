@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e81bd826d475abd4e80d6491b68b93d2, type: 3}
   m_Name: CoinPresent
   m_EditorClassIdentifier: 
-  _sprite: {fileID: 21300000, guid: 69896b2a19587f24b97616affa32939c, type: 3}
+  _sprite: {fileID: 21300000, guid: 845147ca1a4084f68ba9c14f993a19c4, type: 3}
   _minAmount: 100
   _maxAmount: 1000

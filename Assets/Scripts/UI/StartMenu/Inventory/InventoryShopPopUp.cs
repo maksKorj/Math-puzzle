@@ -8,14 +8,12 @@ namespace StartMenu.Inventory
         [SerializeField] private ShopButton[] _boosterShopButtons;
         [SerializeField] private FreeBoosterShopButton _freeBoosterShopButton;
         [SerializeField] private TextMeshProUGUI _boosterNameDisplay;
-        [SerializeField] private GameObject _childe;
+        [SerializeField] protected PopUpAnimation _popUpAnimation;
 
         private void Awake()
         {
             for (int i = 0; i < _boosterShopButtons.Length; i++)
                 _boosterShopButtons[i].Initialize();
-
-            _childe.SetActive(false);
         }
 
         public void OpenShop(BoosterButtonElement boosterButtonElement)
@@ -34,12 +32,12 @@ namespace StartMenu.Inventory
 
         protected virtual void OpenShop()
         {
-            _childe.SetActive(true);
+            _popUpAnimation.Open();
         }
 
         protected virtual void CloseShop()
         {
-            _childe.SetActive(false);
+            _popUpAnimation.Close();
         }
     }
 }

@@ -4,10 +4,10 @@ namespace StartMenu
 {
     public class LifeShopPopUp : MonoBehaviour
     {
-        [SerializeField] private GameObject _childe;
+        [SerializeField] private PopUpAnimation _childe;
 
-        public void Open() => _childe.SetActive(true);
-        public void Close() => _childe.SetActive(false);
+        public void Open() => _childe.Open();
+        public void Close() => _childe.Close();
     }
 }
 

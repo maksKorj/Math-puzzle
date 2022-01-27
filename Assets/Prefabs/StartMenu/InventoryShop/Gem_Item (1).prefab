@@ -982,8 +982,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 89, y: 57}
-  m_SizeDelta: {x: 54, y: 50}
+  m_AnchoredPosition: {x: 105.50824, y: 57}
+  m_SizeDelta: {x: 87.0165, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3040169549718409003
 CanvasRenderer:
@@ -1047,7 +1047,7 @@ MonoBehaviour:
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_HorizontalAlignment: 2
+  m_HorizontalAlignment: 1
   m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
@@ -1076,7 +1076,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 1
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_margin: {x: 5.7378235, y: 0, z: 0, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -1178,4 +1178,6 @@ MonoBehaviour:
   _image: {fileID: 3040169549619005808}
   _boosterAmountDisplay: {fileID: 3040169549718409004}
   _priceDisplay: {fileID: 2586878210770061125}
+  _priceSaleDisplay: {fileID: 2586878210647816662}
+  _saleDisplay: {fileID: 2586878209302538532}
   _boosterAmount: 3

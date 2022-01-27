@@ -9,6 +9,8 @@ namespace LevelBuilder
         [SerializeField] private GameObject _topBorder; 
         [SerializeField] private GameObject _bottomBorder;
 
+        [SerializeField] private RectTransform _contentTransform;
+
         public UnitGrid UnitGrid { get; set; }
 
         public void MoveUnit() => UnitGrid.MoveUnit(GridPosition);
@@ -23,6 +25,18 @@ namespace LevelBuilder
             _backgroundImage.RectTransform.rotation = Quaternion.Euler(0, 0, rotation.z);
         }
         #endregion
+
+        public void OffsetContentToLeft() => SetOffset(25, 15, 20, 20);
+        public void OffsetContentToBottom() => SetOffset(20, 20, 15, 25);
+        public void OffsetContentToTop() => SetOffset(20, 20, 25, 15);
+
+        private void SetOffset(int top, int bottom, int left, int right)
+        {
+            _contentTransform.Top(top);
+            _contentTransform.Bottom(bottom);
+            _contentTransform.Left(left);
+            _contentTransform.Right(right);
+        }
     }
 }
 

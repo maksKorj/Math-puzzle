@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class WinPopUp : MonoBehaviour
 {
-    [SerializeField] private GameObject _childe;
+    [SerializeField] private PopUpAnimation _childe;
     [SerializeField] private EquationVisualizer _equationVisualizer;
     [SerializeField] private GridAddition _gridAddition;
     [SerializeField] private CoinGiver _coinGiver;
@@ -27,8 +27,6 @@ public class WinPopUp : MonoBehaviour
         PlayerSaver.SavePlayerLevel(currentLevel + 1);
 
         _coinGiver.UpdateAmount();
-        _childe.SetActive(true);
-
-        _presentGiver.LevelCompleted();
+        _childe.Open(_presentGiver.LevelCompleted);
     }
 }

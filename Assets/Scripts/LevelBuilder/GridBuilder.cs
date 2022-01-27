@@ -12,6 +12,9 @@ namespace LevelBuilder
         [SerializeField] private GridElement _gridElement;
         [SerializeField] private GridButton _gridButton;
         [SerializeField] private UnitMover _unitMover;
+        [Header("GridElements background")]
+        [SerializeField] private Sprite _blackBackground;
+        [SerializeField] private Sprite _whiteBackground;
 
         private RectTransform _rectTransform;
         private GridElement[,] _gridElements;
@@ -118,6 +121,7 @@ namespace LevelBuilder
                     if (InvalidIndex(x, y))
                         continue;
 
+                    _gridElements[x, y].SetBackground(GetSprite(x, y));
                     _gridElements[x, y].OffsetElement(_unitDiameter, GetUnitWorldPosition(worldBottomLeft, x, y));
                 }
             }
@@ -151,6 +155,25 @@ namespace LevelBuilder
             }
         }
         #endregion
+
+        private Sprite GetSprite(int x, int y)
+        {
+            if (y % 2 == 0)
+            {
+                if (x % 2 == 0)
+                    return _blackBackground;
+                else
+                    return _whiteBackground;
+            }
+            else
+            {
+                if (x % 2 == 0)
+                    return _whiteBackground;
+                else
+                    return _blackBackground;
+            }
+        }
+
 
         #region HelperFunction
         private bool InvalidIndex(int x, int y) =>

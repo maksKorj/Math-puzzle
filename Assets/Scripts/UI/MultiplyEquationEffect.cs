@@ -1,23 +1,22 @@
 using System.Collections;
 using UnityEngine;
-using TMPro;
+using UnityEngine.UI;
 using DG.Tweening;
 
 public class MultiplyEquationEffect : MonoBehaviour
 {
-    [SerializeField] private TextMeshProUGUI _textDisplay;
     [SerializeField] private float _unitAnimationDuration = 1f;
+    [SerializeField] private Sprite[] _textEffects;
+    [SerializeField] private Image _image;
 
     private RectTransform _rectTransform;
-    private IntToText _intToText;
     private Vector2 _startPosition, _middlePosition,_endPostion;
     private WaitForSeconds _delay = new WaitForSeconds(0.5f);
 
-    public float EffectTime => _unitAnimationDuration * 2.5f;
+    public float EffectTime => _unitAnimationDuration * 1.5f;
 
     private void Awake()
     {
-        _intToText = new IntToText();
         _rectTransform = GetComponent<RectTransform>();
 
         _startPosition = _rectTransform.anchoredPosition;
@@ -31,34 +30,15 @@ public class MultiplyEquationEffect : MonoBehaviour
     {
         gameObject.SetActive(true);
         _rectTransform.anchoredPosition = _startPosition;
-        _textDisplay.text = _intToText.ConvertInt(amount);
+        _image.sprite = _textEffects[Random.Range(0, _textEffects.Length)];
+        _image.SetNativeSize();
 
-        _rectTransform.DOAnchorPos(_middlePosition, 1f).SetEase(Ease.OutBack).OnComplete(() => StartCoroutine(WaitAndMoveForward()) );
+        _rectTransform.DOAnchorPos(_middlePosition, _unitAnimationDuration / 2).SetEase(Ease.OutBack).OnComplete(() => StartCoroutine(WaitAndMoveForward()));
     }
 
     private IEnumerator WaitAndMoveForward()
     {
         yield return _delay;
-        _rectTransform.DOAnchorPos(_endPostion, 1f).SetEase(Ease.InFlash).OnComplete(() => gameObject.SetActive(false));
-    }
-}
-
-public class IntToText
-{
-    private string[] _names;
-
-    public IntToText()
-    {
-        _names = new string[] { "DOUBLE", "TRIPLE", "QUADRUPLE", "QUINTUPLE" };
-    }
-
-    public string ConvertInt(int amount)
-    {
-        if(amount >= _names.Length || amount < 2)
-        {
-            Debug.LogError("Amount is incorrect!");
-        }
-
-        return _names[amount - 2];
+        _rectTransform.DOAnchorPos(_endPostion, _unitAnimationDuration / 2).SetEase(Ease.InFlash).OnComplete(() => gameObject.SetActive(false));
     }
 }

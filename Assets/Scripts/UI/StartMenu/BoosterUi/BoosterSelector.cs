@@ -6,7 +6,7 @@ namespace StartMenu.BoosterUi
     public class BoosterSelector : MonoBehaviour
     {
         [SerializeField] private TextMeshProUGUI _levelName;
-        [SerializeField] private GameObject _childe;
+        [SerializeField] private PopUpAnimation _popupAnimation;
         [SerializeField] private BoosterButtonSlot[] _boosterButtonSlots;
 
         private void Awake()
@@ -17,7 +17,7 @@ namespace StartMenu.BoosterUi
 
         public void Open(string level)
         {
-            _childe.SetActive(true);
+            _popupAnimation.Open();
             _levelName.text = level; 
 
             if (BoosterSaverManager.Instance.SlotItems.Count > 0)
@@ -34,7 +34,7 @@ namespace StartMenu.BoosterUi
 
         public void Close()
         {
-            _childe.SetActive(false);
+            _popupAnimation.Close();
         }
     }
 }

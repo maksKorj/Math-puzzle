@@ -34,21 +34,15 @@ public class LevelPropertyHandler : MonoBehaviour
 
     public int AmountOfMoves()
     {
-        //ToDo
         if (IsContainedLevel())
-            return _levelSettings.VictoryCondition.MoveAmount;
-
-        /*if (IsLevelContains())
             return _levelSettings.VictoryCondition.MoveAmount;
         else
         {
             if (_victoryCondition == null)
                 _victoryCondition = _victoryConditions[Random.Range(0, _victoryConditions.Length)];
+
+            return _victoryCondition.MoveAmount;
         }
-
-        return _victoryCondition.MoveAmount;*/
-
-        return 10;
     }
     
     public VictoryCondition VictoryCondition()
@@ -59,9 +53,10 @@ public class LevelPropertyHandler : MonoBehaviour
         {
             if (_victoryCondition == null)
                 _victoryCondition = _victoryConditions[Random.Range(0, _victoryConditions.Length)];
-        }
 
-        return _victoryCondition;
+
+            return _victoryCondition;
+        }
     }
     
     public SymbolConfig SymbolConfig()

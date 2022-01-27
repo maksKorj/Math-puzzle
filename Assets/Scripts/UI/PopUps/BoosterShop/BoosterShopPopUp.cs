@@ -1,20 +1,14 @@
 using StartMenu.Inventory;
-using UnityEngine;
 
 public class BoosterShopPopUp : InventoryShopPopUp
 {
-    [SerializeField] private MainWallet _wallet;
-
     protected override void CloseShop()
     {
-        base.CloseShop();
-        _wallet.HideWallet();
+        (_popUpAnimation as PopUpAnimationAditional).Close();
     }
 
     protected override void OpenShop()
     {
-        base.OpenShop();
-        _wallet.ShowWallet();
-        
+        (_popUpAnimation as PopUpAnimationAditional).Open();
     }
 }

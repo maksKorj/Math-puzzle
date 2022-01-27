@@ -70,7 +70,7 @@ public class PresentPopUp : MonoBehaviour
         {
             _amount = Random.Range(1, 6);
             _boosterItem = list[Random.Range(0, list.Count)];
-            _boosterPresent.ShowPresent(_boosterItem.Booster.BoosterImage, $"+ {_amount}");
+            _boosterPresent.ShowPresent(_boosterItem.Booster.BoosterImage, $"x{_amount}");
             Give = () => _boosterItem.AddAmount(_amount);
         }
         else

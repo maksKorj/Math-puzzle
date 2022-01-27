@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2e7910b3458a34f448fdfe97456965ff, type: 3}
+  m_Name: Start Position Level 2
+  m_EditorClassIdentifier: 
+  _gridElementContents:
+  - _position: {x: 0, y: 3}
+    _gridContent: {fileID: 11400000, guid: 685094ac6a3da394b9953bc260cd81b4, type: 2}
+  - _position: {x: 1, y: 3}
+    _gridContent: {fileID: 11400000, guid: fd212c9cccb27374b8e22d18a85b17b2, type: 2}
+  - _position: {x: 2, y: 3}
+    _gridContent: {fileID: 11400000, guid: a8f4bd18fb3bc6c4388efee430a23639, type: 2}
+  - _position: {x: 3, y: 3}
+    _gridContent: {fileID: 11400000, guid: 0fea03f85d42d6a4b9fbcdde0babe4a6, type: 2}
+  - _position: {x: 4, y: 4}
+    _gridContent: {fileID: 11400000, guid: 0fea03f85d42d6a4b9fbcdde0babe4a6, type: 2}
+  - _position: {x: 5, y: 3}
+    _gridContent: {fileID: 11400000, guid: f0d8a0f92aa13784baadd3c640d7dd4c, type: 2}

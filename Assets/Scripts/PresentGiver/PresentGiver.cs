@@ -3,17 +3,23 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 using DG.Tweening;
+using System.Collections;
 
 public class PresentGiver : MonoBehaviour
 {
     [SerializeField] private Image _progressBar;
     [SerializeField] private TextMeshProUGUI _amountDisplay;
     [SerializeField] private PresentBoxPopUp _presentBoxPopUp;
+    [SerializeField] private float[] _fillStages;
 
     private int _amountToGetPresent = 5;
     private int _currentAmount;
+    private WaitForSeconds _delay = new WaitForSeconds(0.1f);
 
-    public void LevelCompleted()
+    public void LevelCompleted() => StartCoroutine(UpdateAmount());
+
+
+    private IEnumerator UpdateAmount()
     {
         Action action;
         _currentAmount = PlayerSaver.LoadCompleteLevelNumber();
@@ -21,7 +27,7 @@ public class PresentGiver : MonoBehaviour
         _presentBoxPopUp.BlockRaycast();
 
         _progressBar.fillAmount = (float)_currentAmount / _amountToGetPresent;
-        _amountDisplay.text = $"{_currentAmount} / {_amountToGetPresent}";
+        _amountDisplay.text = $"<color=#ffffff>{_currentAmount}</color>/{_amountToGetPresent}";
 
         _currentAmount++;
         if (_currentAmount >= _amountToGetPresent)
@@ -35,12 +41,14 @@ public class PresentGiver : MonoBehaviour
             PlayerSaver.SaveCompleteLevelNumber(_currentAmount);
         }
 
-        _progressBar.DOFillAmount((float)_currentAmount / _amountToGetPresent, 1f).OnComplete(() => UpdateText(action));
+        yield return _delay;
+
+        _progressBar.DOFillAmount(_fillStages[_currentAmount - 1], 1f).OnComplete(() => UpdateText(action));
     }
 
     private void UpdateText(Action popUpAction)
     {
-        _amountDisplay.text = $"{_currentAmount} / {_amountToGetPresent}";
+        _amountDisplay.text = $"<color=#ffffff>{_currentAmount}</color>/{_amountToGetPresent}";
         popUpAction();
     }
 }

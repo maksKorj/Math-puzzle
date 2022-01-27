@@ -1,5 +1,6 @@
 using UnityEngine;
 using TMPro;
+using DG.Tweening;
 
 public abstract class Wallet : MonoBehaviour
 {
@@ -55,6 +56,20 @@ public abstract class Wallet : MonoBehaviour
         return Amount >= amount;
     }
 
-    public void ShowOpenButton() => _openButton.SetActive(true);
-    public void HideOpenButton() => _openButton.SetActive(false);
+    private RectTransform _openButtonTransform;
+
+    public void ShowOpenButton()
+    {
+        _openButton.SetActive(true);
+        _openButtonTransform.DOScale(Vector2.one, 0.3f).SetEase(Ease.OutBounce);
+    }
+
+    public void HideOpenButton()
+    {
+        if (_openButtonTransform == null)
+            _openButtonTransform = _openButton.GetComponent<RectTransform>();
+
+        _openButtonTransform.DOScale(Vector2.zero, 0.4f)
+            .SetEase(Ease.InCirc).OnComplete(() => _openButton.SetActive(false));
+    }
 }

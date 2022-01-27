@@ -50,6 +50,8 @@ namespace LevelBuilder
 
             if (x == 0)
             {
+                gridButton.OffsetContentToLeft();
+
                 if (y == 1)
                     gridButton.ShowTopBorder();
                 else if (y == maxIndexY - 1)
@@ -66,6 +68,8 @@ namespace LevelBuilder
 
             if (y == 0)
             {
+                gridButton.OffsetContentToBottom();
+
                 if (x == 1)
                     gridButton.ShowDownBorder();
                 else if (x == maxIndexX - 1)
@@ -74,6 +78,8 @@ namespace LevelBuilder
 
             if (y == maxIndexY)
             {
+                gridButton.OffsetContentToTop();
+
                 if (x == 1)
                     gridButton.ShowTopBorder();
                 else if (x == maxIndexX - 1)

@@ -13,7 +13,6 @@ public class MainWallet : MonoBehaviour
     public void HideWallet()
     {
         gameObject.SetActive(false);
-        ShowOpenButtons();
     }
 
     public void ShowOpenButtons()

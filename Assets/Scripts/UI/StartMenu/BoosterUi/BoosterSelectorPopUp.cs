@@ -5,12 +5,13 @@ namespace StartMenu.BoosterUi
     public class BoosterSelectorPopUp : MonoBehaviour
     {
         [SerializeField] private BoosterSelectorItem[] _boosterSelectorItems;
+        [SerializeField] private PopUpAnimation _popUpAnimation;
 
         private BoosterButtonSlot _boosterButtonSlot;
 
         public void Open(BoosterButtonSlot boosterButtonSlot)
         {
-            gameObject.SetActive(true);
+            _popUpAnimation.Open();
             _boosterButtonSlot = boosterButtonSlot;
 
             for (int i = 0; i < _boosterSelectorItems.Length; i++)
@@ -28,7 +29,7 @@ namespace StartMenu.BoosterUi
             Close();
         }
 
-        public void Close() => gameObject.SetActive(false);
+        public void Close() => _popUpAnimation.Close();
     }
 }
 

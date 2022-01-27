@@ -25,6 +25,7 @@ public class GridAnimation : MonoBehaviour
     private IEnumerator ShowElement()
     {
         float time = _gridBuilder.GridElement(1, 1).ShowingTime;
+        var _delay = new WaitForSeconds(time / 4);
 
         for (int x = 0; x < _gridBuilder.SizeX; x++)
         {
@@ -37,10 +38,12 @@ public class GridAnimation : MonoBehaviour
                 {
                     _gridBuilder.GridElement(x, y).ScaleToFullSize();
 
-                    yield return new WaitForSeconds(time / 2);
+                    yield return _delay;
                 }
             }
         }
+
+        yield return new WaitForSeconds(0.25f);
 
         _unitGrid.UnBlockShoting();
         _boosterManager.SetButtonInteractable(true);

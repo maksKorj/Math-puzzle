@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e81bd826d475abd4e80d6491b68b93d2, type: 3}
   m_Name: DiamondPresent
   m_EditorClassIdentifier: 
-  _sprite: {fileID: 21300000, guid: ece3900db3718bf4e96887c965c955ab, type: 3}
+  _sprite: {fileID: 21300000, guid: ab93bcba534eb4b0ab357947d7cb1f2f, type: 3}
   _minAmount: 1
   _maxAmount: 10

@@ -4,5 +4,5 @@ using UnityEngine;
 public class ClearField : VictoryCondition
 {
     public override void ShowUI()
-        => FindObjectOfType<ClearFieldHandler>().ShowStartUi();
+        => FindObjectOfType<ClearFieldHandlerMain>().ShowStartUi();
 }
