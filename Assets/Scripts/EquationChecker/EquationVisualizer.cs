@@ -8,7 +8,6 @@ public class EquationVisualizer : MonoBehaviour
 {
     [SerializeField] private GridElement _gridElement;
     [SerializeField] private UnitGridAmountChecker _gridAmountChecker;
-    [SerializeField] private VictoryConditionHandler[] _victoryConditionHandlers;
     [SerializeField] private MultiplyEquationEffect _multiplyEquationEffect;
 
     private WaitForSeconds _selectDelay, _hideDelay, _showDelay, _multiplyEffectDelay;
@@ -32,16 +31,9 @@ public class EquationVisualizer : MonoBehaviour
         _equationChecker = GetComponent<EquationChecker>();
     }
 
-    private void Start()
+    public void SetVictoryCondition(VictoryConditionHandler victoryConditionHandler)
     {
-        for(int i = 0; i < _victoryConditionHandlers.Length; i++)
-        {
-            if(_victoryConditionHandlers[i].IsActiveCondition)
-            {
-                _victoryConditionHandler = _victoryConditionHandlers[i];
-                return;
-            }
-        }
+        _victoryConditionHandler = victoryConditionHandler;
     }
 
     public void EndShowing()
@@ -93,7 +85,7 @@ public class EquationVisualizer : MonoBehaviour
     private IEnumerator EndShow()
     {
         _gridAmountChecker.CountAmount();
-        
+
         if(_victoryConditionHandler != null && _victoryConditionHandler.WasUpdate)
         {
             _victoryConditionHandler.UpdateGameUi();

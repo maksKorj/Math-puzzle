@@ -9,6 +9,7 @@ public abstract class VictoryConditionHandler : ClearFieldHandler
     [SerializeField] protected TextMeshProUGUI _startAmountDisplay;
     [SerializeField] protected TextMeshProUGUI _gameAmountDisplay;
     [SerializeField] protected Image _fillImage;
+    [SerializeField] protected EquationVisualizer _equationVisualizer;
 
     protected int _amountToWin;
     protected int _currentAmount;
@@ -21,6 +22,7 @@ public abstract class VictoryConditionHandler : ClearFieldHandler
     {
         ShowStartUi();
         _amountToWin = amount;
+        _equationVisualizer.SetVictoryCondition(this);
 
         StartUpdateUi(amount);
     }

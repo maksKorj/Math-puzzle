@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using DG.Tweening;
+using System.Collections;
 
 public class LevelLoader : MonoBehaviour
 {
@@ -11,6 +12,8 @@ public class LevelLoader : MonoBehaviour
 
     private string _currentSceneName;
     private string _loadingSceneName;
+
+    private bool _isAdWatched;
 
     private void Awake()
     {
@@ -27,11 +30,26 @@ public class LevelLoader : MonoBehaviour
 
         if (_currentSceneName.Equals(_level))
         {
-            AdsController.Instance.AdsInterstitial.OnAdsClosed += PlayAnimationAndLoad;
+            _isAdWatched = false;
+            StartCoroutine(WaitAndGiveLives());
+
+            AdsController.Instance.AdsInterstitial.OnAdsClosed += OnEndWatched;
             AdsController.Instance.ShowInterstitialAds();
         }
         else
             PlayAnimationAndLoad();
+    }
+
+    private void OnEndWatched()
+    {
+        AdsController.Instance.AdsInterstitial.OnAdsClosed -= OnEndWatched;
+        _isAdWatched = true;
+    }
+
+    private IEnumerator WaitAndGiveLives()
+    {
+        yield return new WaitWhile(() => _isAdWatched == false);
+        PlayAnimationAndLoad();
     }
 
     private void PlayAnimationAndLoad()

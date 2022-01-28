@@ -2,7 +2,7 @@ using UnityEngine;
 
 public abstract class FreeButton : MonoBehaviour
 {
-    public void GetFree()
+    public virtual void GetFree()
     {
         AdsController.Instance.AdsRewarded.OnFinishWatchingAds += Reward;
         AdsController.Instance.ShowRewardedAds();

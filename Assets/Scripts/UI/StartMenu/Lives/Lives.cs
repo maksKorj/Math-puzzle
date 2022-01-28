@@ -117,7 +117,7 @@ namespace StartMenu
             _livesDisplay.text = _livesAmount.ToString();
             PlayerSaver.SavePlayerLife(_livesAmount);
         }
-
+        
         public void AddLife(int amount = 1)
         {
             _livesAmount += amount;

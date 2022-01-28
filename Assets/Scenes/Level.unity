@@ -3270,6 +3270,7 @@ MonoBehaviour:
   _startAmountDisplay: {fileID: 2662442101378443511}
   _gameAmountDisplay: {fileID: 525892668}
   _fillImage: {fileID: 525892669}
+  _equationVisualizer: {fileID: 1340795001}
 --- !u!224 &703501521 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 5317421008996400914, guid: d7fb3785704b00349ada559da5ca6062, type: 3}
@@ -5360,9 +5361,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _gridElement: {fileID: 3910632566187712009, guid: c40a31ea7534d4d40bb45d48e4e7284f, type: 3}
   _gridAmountChecker: {fileID: 1874345068}
-  _victoryConditionHandlers:
-  - {fileID: 1487403269}
-  - {fileID: 664853840}
   _multiplyEquationEffect: {fileID: 1479260854}
 --- !u!114 &1340795002
 MonoBehaviour:
@@ -5870,6 +5868,7 @@ MonoBehaviour:
   _startAmountDisplay: {fileID: 2662442101378443510}
   _gameAmountDisplay: {fileID: 224375727}
   _fillImage: {fileID: 224375728}
+  _equationVisualizer: {fileID: 1340795001}
 --- !u!1001 &1501386097
 PrefabInstance:
   m_ObjectHideFlags: 0
