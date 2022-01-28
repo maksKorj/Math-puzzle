@@ -980,6 +980,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: AudioButtonHelper, Assembly-CSharp
+        m_MethodName: PlaySound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &3442000730936079946
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1216,6 +1228,30 @@ PrefabInstance:
     - target: {fileID: 3781279252949497785, guid: 85c05d18128a05046bc0f707bd81da3e, type: 3}
       propertyPath: m_Color.r
       value: 0.12156863
+      objectReference: {fileID: 0}
+    - target: {fileID: 4444885078886500227, guid: 85c05d18128a05046bc0f707bd81da3e, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4444885078886500227, guid: 85c05d18128a05046bc0f707bd81da3e, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4444885078886500227, guid: 85c05d18128a05046bc0f707bd81da3e, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4444885078886500227, guid: 85c05d18128a05046bc0f707bd81da3e, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: PlaySound
+      objectReference: {fileID: 0}
+    - target: {fileID: 4444885078886500227, guid: 85c05d18128a05046bc0f707bd81da3e, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: AudioButtonHelper, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 4444885078886500227, guid: 85c05d18128a05046bc0f707bd81da3e, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 85c05d18128a05046bc0f707bd81da3e, type: 3}

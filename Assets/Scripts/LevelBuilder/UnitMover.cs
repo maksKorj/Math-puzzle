@@ -47,9 +47,9 @@ namespace LevelBuilder
 
         private IEnumerator MoveUnit(GridContent gridContent, Vector2 startPosition, Vector2 endPosition, bool blowUpInEnd)
         {
-           
-
             yield return _moveDelay;
+
+            AudioController.Instance.PlaySound(SoundItem.END_FLYING);
 
             _rectTransform.anchoredPosition = startPosition;
             Show(gridContent);
@@ -75,6 +75,7 @@ namespace LevelBuilder
             _contentImage.ResetImage();
             _backgroundImage.ResetImage();
 
+            AudioController.Instance.PlaySound(SoundItem.CHIP_COLLIDE);
             OnEndMoving?.Invoke();
         }
 

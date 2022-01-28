@@ -17,7 +17,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &6640314701659339090
 RectTransform:
   m_ObjectHideFlags: 0
@@ -71,7 +71,7 @@ MonoBehaviour:
   _boosterPresent: {fileID: 6640314703466447914}
   _present: {fileID: 6640314701688886215}
   _button: {fileID: 6640314703267803137}
-  _progressBarBlock: {fileID: 0}
+  _progressBarBlock: {fileID: 6640314703339661391}
 --- !u!1 &6640314701688886215
 GameObject:
   m_ObjectHideFlags: 0
@@ -980,7 +980,7 @@ MonoBehaviour:
   m_fontColor32:
     serializedVersion: 2
     rgba: 4293054746
-  m_fontColor: {r: 0.10373794, g: 0.81870073, b: 0.8867924, a: 1}
+  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:

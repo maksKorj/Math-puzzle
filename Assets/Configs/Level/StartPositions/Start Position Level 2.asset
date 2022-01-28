@@ -25,3 +25,5 @@ MonoBehaviour:
     _gridContent: {fileID: 11400000, guid: 0fea03f85d42d6a4b9fbcdde0babe4a6, type: 2}
   - _position: {x: 5, y: 3}
     _gridContent: {fileID: 11400000, guid: f0d8a0f92aa13784baadd3c640d7dd4c, type: 2}
+  - _position: {x: 4, y: 5}
+    _gridContent: {fileID: 11400000, guid: 685094ac6a3da394b9953bc260cd81b4, type: 2}

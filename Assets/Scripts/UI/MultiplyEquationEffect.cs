@@ -39,6 +39,7 @@ public class MultiplyEquationEffect : MonoBehaviour
     private IEnumerator WaitAndMoveForward()
     {
         yield return _delay;
+        AudioController.Instance.PlaySound(SoundItem.COMBO);
         _rectTransform.DOAnchorPos(_endPostion, _unitAnimationDuration / 2).SetEase(Ease.InFlash).OnComplete(() => gameObject.SetActive(false));
     }
 }

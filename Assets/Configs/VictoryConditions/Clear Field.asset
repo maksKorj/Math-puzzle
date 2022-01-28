@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b61a3cd503ee5b948bac18f41b6b02bf, type: 3}
   m_Name: Clear Field
   m_EditorClassIdentifier: 
-  _moveAmount: 15
+  _moveAmount: 2

@@ -29,7 +29,6 @@ namespace LevelBuilder
         private void AddElementsToGrid()
         {
             AddElementsToGrid(false);
-            _gridAnimation.ShowGridElements();
         }
 
         public void AddElementsToGrid(bool isStartAdding)
@@ -43,7 +42,6 @@ namespace LevelBuilder
             if(_clearFieldHandler.IsActiveCondition)
             {
                 OnWin?.Invoke();
-                Debug.Log("Win");
                 return;
             }
 
@@ -51,6 +49,8 @@ namespace LevelBuilder
                 AddElements();
             else
                 _equationBuilder.AddBrokenEquations();
+
+            _gridAnimation.ShowGridElements();
         }
 
         private void AddElements()

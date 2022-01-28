@@ -1,5 +1,6 @@
 using UnityEngine;
 using StartMenu;
+using System.Collections;
 
 public class LosePopUp : MonoBehaviour
 {
@@ -9,6 +10,7 @@ public class LosePopUp : MonoBehaviour
     [SerializeField] private MoveCounter _moveCounter;
     [SerializeField] private UnitGrid _unitGrid;
     [SerializeField] private Lives _lives;
+    [SerializeField] private WinPopUp _winPopUp;
 
     private void Awake()
     {
@@ -19,6 +21,7 @@ public class LosePopUp : MonoBehaviour
 
     public void ShowPopUp()
     {
+        AudioController.Instance.PlaySound(SoundItem.LOSE);
         _mainLosePopUp.SetActive(true);
         _lives.ShowAndRemoveLife();
     }
@@ -26,6 +29,14 @@ public class LosePopUp : MonoBehaviour
     private void ShowContinuePopUp()
     {
         if (_moveCounter.IsRunOutMoves)
+            StartCoroutine(WaitAndShow());
+    }
+
+    private WaitForSeconds _delay = new WaitForSeconds(0.6f);
+    private IEnumerator WaitAndShow()
+    {
+        yield return _delay;
+        if(_winPopUp.IsWin == false)
             _continuePopUp.ShowContinuePopUp(this);
     }
 }

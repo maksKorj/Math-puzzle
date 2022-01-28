@@ -13,7 +13,7 @@ public static class SettingsSaver
         if (PlayerPrefs.HasKey(path))
             return PlayerPrefs.GetFloat(path);
         else
-            return 0.5f;
+            return DefaultValue(settingItem);
     }
 
     private static string GetPath(SettingItem settingItem)
@@ -29,6 +29,9 @@ public static class SettingsSaver
         Debug.LogError("Unexpected value");
         return null;
     }
+
+    public static float DefaultValue(SettingItem settingItem)
+        => settingItem == SettingItem.Sound ? 1 : 0.5f;
 }
 
 public enum SettingItem

@@ -116,10 +116,17 @@ public class EquationVisualizer : MonoBehaviour
 
     private void Show(List<GridElement> equation)
     {
+        StartCoroutine(WaitAndPlaySound());
         for (int i = 0; i < equation.Count; i++)
             equation[i].SelectAtEquation();
 
         CheckWinCondition(equation);
+    }
+
+    private IEnumerator WaitAndPlaySound()
+    {
+        yield return new WaitForSeconds(0.6f);
+        AudioController.Instance.PlaySound(SoundItem.SELECT);
     }
 
     private void Hide(List<GridElement> equation)

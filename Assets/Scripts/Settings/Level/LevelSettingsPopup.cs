@@ -17,7 +17,7 @@ public class LevelSettingsPopup : MonoBehaviour
 
     private void OpenAmimation()
     {
-        _background.DOFade(0.4f, 0.8f);
+        _background.DOFade(0.8f, 0.8f);
         _circleTransform.DOScale(Vector2.one, 1f).SetEase(Ease.InCubic).OnComplete(() => _backgroundButton.enabled = true); 
     }
 

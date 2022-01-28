@@ -16,7 +16,7 @@ public class SettingsSlider : MonoBehaviour
 
     public void UpdateValue()
     {
-        //Add SounOrMusicElement _slider.value
+        AudioController.Instance.SetAudioValue(_settingItem, _slider.value);
 
         if (_slider.value == 0)
             _imageIcon.sprite = _muteIcon;

@@ -110,6 +110,14 @@ namespace LevelBuilder
 
         public void ScaleToFullSize()
         {
+            AudioController.Instance.PlaySound(SoundItem.JUMP);
+            _backgroundImage.RectTransform.DOScale(1, _animationTime).SetEase(Ease.OutBounce);
+            _contentImage.RectTransform.DOScale(1, _animationTime).SetEase(Ease.OutBounce);
+        }
+
+        public void ScaleToFullSizeWithSound()
+        {
+            AudioController.Instance.PlayChipJumpSound();
             _backgroundImage.RectTransform.DOScale(1, _animationTime).SetEase(Ease.OutBounce);
             _contentImage.RectTransform.DOScale(1, _animationTime).SetEase(Ease.OutBounce);
         }
@@ -125,6 +133,7 @@ namespace LevelBuilder
 
         private void ExplodeAndHide()
         {
+            AudioController.Instance.PlaySound(SoundItem.EXPLOSION);
             _particleSystemMain.startColor = _selectColor;
             _particleSystem.Play();
             ResetGridContent();

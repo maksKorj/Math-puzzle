@@ -338,7 +338,7 @@ MonoBehaviour:
   _backgroundImage: {fileID: 8416644584522450446}
   _mainBackground: {fileID: 3910632566187712007}
   _particleSystem: {fileID: 4223471458978792127}
-  _selectColor: {r: 1, g: 0.7411765, b: 0, a: 1}
+  _selectColor: {r: 1, g: 0.61960787, b: 0, a: 1}
   _animationTime: 1
   _rightBorder: {fileID: 2771910055316094445}
   _topBorder: {fileID: 5499677398540248318}
@@ -367,7 +367,7 @@ MonoBehaviour:
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    m_PressedColor: {r: 0.4188679, g: 1, b: 0.7094339, a: 1}
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
@@ -384,7 +384,7 @@ MonoBehaviour:
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
   m_Interactable: 1
-  m_TargetGraphic: {fileID: 3910632566187712007}
+  m_TargetGraphic: {fileID: 8330237646662671958}
   m_OnClick:
     m_PersistentCalls:
       m_Calls:

@@ -1,6 +1,4 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -43,14 +41,14 @@ public class LevelSettingsButton : MonoBehaviour
 
     private void Mute()
     {
-        //ToDoSound;
+        AudioController.Instance.SetAudioValue(_settingItem, 0f);
         SettingsSaver.SaveSettingItemValue(_settingItem, 0f);
         SetMuteValue();
     }
 
     private void UnMute()
     {
-        //ToDO
+        AudioController.Instance.SetAudioValue(_settingItem, SettingsSaver.DefaultValue(_settingItem));
         SettingsSaver.SaveSettingItemValue(_settingItem, 0.5f);
         SetUnMuteValue();
     }

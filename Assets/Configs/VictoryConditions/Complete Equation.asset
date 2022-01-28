@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: Complete Equation
   m_EditorClassIdentifier: 
   _moveAmount: 15
-  _amountToWin: 10
+  _amountToWin: 3

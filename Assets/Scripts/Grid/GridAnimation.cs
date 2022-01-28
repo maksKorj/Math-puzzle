@@ -36,7 +36,7 @@ public class GridAnimation : MonoBehaviour
 
                 if(_gridBuilder.GridElement(x, y).IsTaken)
                 {
-                    _gridBuilder.GridElement(x, y).ScaleToFullSize();
+                    _gridBuilder.GridElement(x, y).ScaleToFullSizeWithSound();
 
                     yield return _delay;
                 }

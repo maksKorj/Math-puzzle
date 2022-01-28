@@ -42,7 +42,7 @@ public class SymbolGiverParticle : MonoBehaviour
     private IEnumerator Move(Vector2 endPosition, Color color)
     {
         yield return new WaitUntil(() => _symbolGiverVisual.IsFading == false);
-
+        AudioController.Instance.PlaySound(SoundItem.SYMBOL_GIVER);
         _particleMainModule.startColor = color;
         _particleSystem.Play();
 
