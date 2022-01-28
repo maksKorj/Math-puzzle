@@ -21,8 +21,11 @@ namespace LevelBuilder
         public void ShowDownBorder() => _bottomBorder.SetActive(true);
         public void RotateContent(Quaternion rotation)
         {
-            _contentImage.RectTransform.rotation = Quaternion.Euler(0, 0, rotation.z);
-            _backgroundImage.RectTransform.rotation = Quaternion.Euler(0, 0, rotation.z);
+            if (rotation.z == 0)
+                return;
+
+            _contentImage.RectTransform.rotation = Quaternion.Euler(0, 0, Mathf.RoundToInt(rotation.z) - 1);
+            _backgroundImage.RectTransform.rotation = Quaternion.Euler(0, 0, Mathf.RoundToInt(rotation.z) - 1);
         }
         #endregion
 

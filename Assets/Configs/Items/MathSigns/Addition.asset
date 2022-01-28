@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _backgroundSprite: {fileID: 21300000, guid: b592a642c87fe1e41b0232d31c7affc5, type: 3}
   _sumbolSprite: {fileID: 6472110944188623208, guid: 1c915cb2d7c1e0049b199f59a5973cfd, type: 3}
-  _backgroundColor: {r: 1, g: 1, b: 1, a: 1}
-  _symbolColor: {r: 0.07504447, g: 0.6415094, b: 0.23044464, a: 1}
+  _backgroundColor: {r: 0.023529412, g: 0.3529412, b: 0.3764706, a: 1}
+  _symbolColor: {r: 1, g: 1, b: 1, a: 1}

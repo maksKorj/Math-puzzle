@@ -13,11 +13,13 @@ MonoBehaviour:
   m_Name: Start Position Level 1
   m_EditorClassIdentifier: 
   _gridElementContents:
-  - _position: {x: 1, y: 3}
-    _gridContent: {fileID: 11400000, guid: 8a00270208bf79e42a9bc58af0e15c3e, type: 2}
-  - _position: {x: 1, y: 2}
-    _gridContent: {fileID: 11400000, guid: 8c823d10ff349c24c99a47cf27c623e7, type: 2}
-  - _position: {x: 2, y: 1}
-    _gridContent: {fileID: 11400000, guid: 0fea03f85d42d6a4b9fbcdde0babe4a6, type: 2}
-  - _position: {x: 3, y: 1}
-    _gridContent: {fileID: 11400000, guid: a8f4bd18fb3bc6c4388efee430a23639, type: 2}
+  - _position: {x: 0, y: 4}
+    _gridContent: {fileID: 11400000, guid: 685094ac6a3da394b9953bc260cd81b4, type: 2}
+  - _position: {x: 7, y: 4}
+    _gridContent: {fileID: 11400000, guid: 685094ac6a3da394b9953bc260cd81b4, type: 2}
+  - _position: {x: 4, y: 8}
+    _gridContent: {fileID: 11400000, guid: 685094ac6a3da394b9953bc260cd81b4, type: 2}
+  - _position: {x: 5, y: 0}
+    _gridContent: {fileID: 11400000, guid: 685094ac6a3da394b9953bc260cd81b4, type: 2}
+  - _position: {x: 3, y: 5}
+    _gridContent: {fileID: 11400000, guid: 685094ac6a3da394b9953bc260cd81b4, type: 2}

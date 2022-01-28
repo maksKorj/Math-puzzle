@@ -28,7 +28,7 @@ public class MainShopTab : MonoBehaviour
 
         _mainShop.UnSelectAll();
 
-        SetTab(_mainShop.TabHelper.ActiveTabSizeHandler, _mainShop.TabHelper.BackgroundSprite.ActiveSprite, Color.black);
+        SetTab(_mainShop.TabHelper.ActiveTabSizeHandler, _mainShop.TabHelper.BackgroundSprite.ActiveSprite, Color.white);
         _iconImage.sprite = _tabImageHandler.ActiveSprite;
 
         _childe.SetActive(true);

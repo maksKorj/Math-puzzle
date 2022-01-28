@@ -95,7 +95,7 @@ MonoBehaviour:
   _backgroundImage: {fileID: 3112055461526224482}
   _mainBackground: {fileID: 3910632566187712007}
   _particleSystem: {fileID: 5914723424993839524}
-  _selectColor: {r: 1, g: 0.8745098, b: 0.4, a: 1}
+  _selectColor: {r: 1, g: 0.73889667, b: 0, a: 1}
   _animationTime: 1
 --- !u!1 &4348512401637059425
 GameObject:

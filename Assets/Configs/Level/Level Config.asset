@@ -17,7 +17,7 @@ MonoBehaviour:
     _size: {x: 8, y: 9}
     _symbolConfig: {fileID: 11400000, guid: 78efd3aacfd8c9e46b3298bdf07d802b, type: 2}
     _startPositionConfig: {fileID: 11400000, guid: 301c98428ae891346ae6b9b96dca7523, type: 2}
-    _victoryCondition: {fileID: 11400000, guid: 6878bc9cafaec464e8e232fcee18ca44, type: 2}
+    _victoryCondition: {fileID: 11400000, guid: 6fc2bd286b1ecf14b8643fb0805ddff2, type: 2}
   - _level: 2
     _size: {x: 8, y: 9}
     _symbolConfig: {fileID: 11400000, guid: 78efd3aacfd8c9e46b3298bdf07d802b, type: 2}
