@@ -26,7 +26,7 @@ public class LabelNotAvailableAnimation : MonoBehaviour
 
     private IEnumerator WaitAndScale()
     {
-        yield return new WaitForSeconds(0.8f);
+        yield return new WaitForSeconds(1f);
         _rectTransform.DOScale(Vector3.zero, 0.25f).OnComplete(SetDefault);
     }
 

@@ -3309,6 +3309,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1100703348}
     - target: {fileID: 7502454432492598620, guid: a08ff58791f4ad54d973482267b04a6e, type: 3}
+      propertyPath: _levelLoader
+      value: 
+      objectReference: {fileID: 1509600401}
+    - target: {fileID: 7502454432492598620, guid: a08ff58791f4ad54d973482267b04a6e, type: 3}
       propertyPath: _tabletScaler
       value: 
       objectReference: {fileID: 2114381640}

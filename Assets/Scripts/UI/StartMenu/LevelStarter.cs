@@ -11,6 +11,7 @@ namespace StartMenu
         [SerializeField] private BoosterSelector _boosterSelector;
         [SerializeField] private LifeShopPopUp _lifeShopPopUp;
         [SerializeField] private TabletScaler _tabletScaler;
+        [SerializeField] private LevelLoader _levelLoader;
 
         private string _levelName;
 
@@ -24,7 +25,12 @@ namespace StartMenu
         public void StartGame()
         {
             if(_lives.HasLives)
-                _boosterSelector.Open(_levelName);
+            {
+                if (BoosterSaverManager.Instance.AvailableBoosterItems.Count > 0)
+                    _boosterSelector.Open(_levelName);
+                else
+                    _levelLoader.LoadLevel();
+            }  
             else
             {
                 _lifeShopPopUp.Open();

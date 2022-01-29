@@ -12,6 +12,7 @@ namespace StartMenu.Inventory
         [SerializeField] private TextMeshProUGUI _amountDisplay;
         [SerializeField] private GameObject _amountBackground;
         [SerializeField] private InventoryShopPopUp _inventoryShopPopUp;
+        [SerializeField] private InventoryLabelAnimation _inventoryLabelAnimation;
 
         public void SetBooster(BoosterItem boosterItem)
         {
@@ -26,6 +27,7 @@ namespace StartMenu.Inventory
             else
             {
                 _lock.SetActive(true);
+                _inventoryLabelAnimation.UpdateLevel(BoosterItem.Booster.AvailableFromLevel);
                 _image.color = _blockColor;
             }
         }

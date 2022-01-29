@@ -41,6 +41,7 @@ public class BoosterSaverManager : MonoBehaviour
 
     private void LoadSave()
     {
+        BoosterSaver.DeleteBoosters();
         var savingBoosterHandler = BoosterSaver.LoadBoosters();
 
         if (savingBoosterHandler == null)
