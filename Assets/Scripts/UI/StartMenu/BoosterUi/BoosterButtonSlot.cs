@@ -7,6 +7,7 @@ namespace StartMenu.BoosterUi
     {
         [SerializeField] private Image _image;
         [SerializeField] private BoosterSelectorPopUp _boosterSelectorPopUp;
+        [SerializeField] private LabelNotAvailableAnimation _labelNotAvailableAnimation;
 
         private int _buttonIndex;
         public int ButtonIndex => _buttonIndex;
@@ -26,6 +27,10 @@ namespace StartMenu.BoosterUi
             if(BoosterSaverManager.Instance.AvailableBoosterItems.Count > 0)
             {
                 _boosterSelectorPopUp.Open(this);
+            }
+            else
+            {
+                _labelNotAvailableAnimation.PlayAnimation();
             }
         }
     }

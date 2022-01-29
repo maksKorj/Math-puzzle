@@ -17,4 +17,4 @@ MonoBehaviour:
   _coinPrice: 100
   _gemPriceForOne: 0.2
   _isImmediatelyApply: 0
-  _availableFromLevel: 0
+  _availableFromLevel: 10
