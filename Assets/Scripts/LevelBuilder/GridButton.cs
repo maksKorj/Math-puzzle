@@ -12,6 +12,7 @@ namespace LevelBuilder
         [SerializeField] private RectTransform _contentTransform;
 
         public UnitGrid UnitGrid { get; set; }
+        public Vector2 Size => _rectTransform.sizeDelta;
 
         public void MoveUnit() => UnitGrid.MoveUnit(GridPosition);
 

@@ -10,6 +10,7 @@ public class GridAnimation : MonoBehaviour
     [SerializeField] private BoosterManager _boosterManager;
 
     private GridBuilder _gridBuilder;
+    public event Action OnEndStartAnimation;
 
     private void Awake()
         => _gridBuilder = GetComponent<GridBuilder>();
@@ -44,6 +45,8 @@ public class GridAnimation : MonoBehaviour
         }
 
         yield return new WaitForSeconds(0.25f);
+
+        OnEndStartAnimation?.Invoke();
 
         _unitGrid.UnBlockShoting();
         _boosterManager.SetButtonInteractable(true);

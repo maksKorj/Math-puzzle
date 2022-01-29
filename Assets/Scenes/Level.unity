@@ -15349,6 +15349,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4266291024135302364, guid: b22f8fa749a237845982f6eb8a2c2237, type: 3}
+      propertyPath: _guideHandler
+      value: 
+      objectReference: {fileID: 1428580876, guid: 9de22a5ba15a3ba44b04c33ae475bcbe, type: 3}
+    - target: {fileID: 4266291024135302364, guid: b22f8fa749a237845982f6eb8a2c2237, type: 3}
       propertyPath: _gridAnimation
       value: 
       objectReference: {fileID: 1874345071}

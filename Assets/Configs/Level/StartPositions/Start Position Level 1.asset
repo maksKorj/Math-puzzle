@@ -21,11 +21,11 @@ MonoBehaviour:
     _gridContent: {fileID: 11400000, guid: 4b2742191b532f84f8b38d6a49392606, type: 2}
   - _position: {x: 5, y: 5}
     _gridContent: {fileID: 11400000, guid: 8d11f8a7cfb1d5d4289aff371843f281, type: 2}
-  - _position: {x: 2, y: 4}
-    _gridContent: {fileID: 11400000, guid: 54bfe4f6bbcef194c96b9c41cf4d8662, type: 2}
   - _position: {x: 3, y: 4}
-    _gridContent: {fileID: 11400000, guid: f0d8a0f92aa13784baadd3c640d7dd4c, type: 2}
+    _gridContent: {fileID: 11400000, guid: 4b2742191b532f84f8b38d6a49392606, type: 2}
   - _position: {x: 4, y: 4}
     _gridContent: {fileID: 11400000, guid: 54bfe4f6bbcef194c96b9c41cf4d8662, type: 2}
   - _position: {x: 5, y: 4}
-    _gridContent: {fileID: 11400000, guid: 4b2742191b532f84f8b38d6a49392606, type: 2}
+    _gridContent: {fileID: 11400000, guid: f0d8a0f92aa13784baadd3c640d7dd4c, type: 2}
+  - _position: {x: 6, y: 4}
+    _gridContent: {fileID: 11400000, guid: 54bfe4f6bbcef194c96b9c41cf4d8662, type: 2}
