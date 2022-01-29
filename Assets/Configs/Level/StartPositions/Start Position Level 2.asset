@@ -13,17 +13,21 @@ MonoBehaviour:
   m_Name: Start Position Level 2
   m_EditorClassIdentifier: 
   _gridElementContents:
-  - _position: {x: 0, y: 3}
-    _gridContent: {fileID: 11400000, guid: 685094ac6a3da394b9953bc260cd81b4, type: 2}
-  - _position: {x: 1, y: 3}
-    _gridContent: {fileID: 11400000, guid: fd212c9cccb27374b8e22d18a85b17b2, type: 2}
-  - _position: {x: 2, y: 3}
-    _gridContent: {fileID: 11400000, guid: a8f4bd18fb3bc6c4388efee430a23639, type: 2}
-  - _position: {x: 3, y: 3}
-    _gridContent: {fileID: 11400000, guid: 0fea03f85d42d6a4b9fbcdde0babe4a6, type: 2}
-  - _position: {x: 4, y: 4}
-    _gridContent: {fileID: 11400000, guid: 0fea03f85d42d6a4b9fbcdde0babe4a6, type: 2}
-  - _position: {x: 5, y: 3}
+  - _position: {x: 2, y: 6}
+    _gridContent: {fileID: 11400000, guid: 54bfe4f6bbcef194c96b9c41cf4d8662, type: 2}
+  - _position: {x: 4, y: 6}
+    _gridContent: {fileID: 11400000, guid: 6c714b81bf17df147ba478e7cb061069, type: 2}
+  - _position: {x: 5, y: 6}
+    _gridContent: {fileID: 11400000, guid: 5a0adba21fbcd9942877eb17b8d5ae54, type: 2}
+  - _position: {x: 2, y: 5}
     _gridContent: {fileID: 11400000, guid: f0d8a0f92aa13784baadd3c640d7dd4c, type: 2}
-  - _position: {x: 4, y: 5}
-    _gridContent: {fileID: 11400000, guid: 685094ac6a3da394b9953bc260cd81b4, type: 2}
+  - _position: {x: 2, y: 4}
+    _gridContent: {fileID: 11400000, guid: 8d11f8a7cfb1d5d4289aff371843f281, type: 2}
+  - _position: {x: 2, y: 3}
+    _gridContent: {fileID: 11400000, guid: 4b2742191b532f84f8b38d6a49392606, type: 2}
+  - _position: {x: 2, y: 2}
+    _gridContent: {fileID: 11400000, guid: 8a00270208bf79e42a9bc58af0e15c3e, type: 2}
+  - _position: {x: 3, y: 1}
+    _gridContent: {fileID: 11400000, guid: 8c823d10ff349c24c99a47cf27c623e7, type: 2}
+  - _position: {x: 4, y: 1}
+    _gridContent: {fileID: 11400000, guid: e6cfd0d91b1dc84449c83466575fbc4c, type: 2}

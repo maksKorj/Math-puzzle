@@ -50,7 +50,7 @@ public class SymbolGiver : MonoBehaviour
 
     private void SetOutput()
     {
-        if (_levelPropertyHandler.IsContainedLevel())
+        if (_levelPropertyHandler.HasSymbolConfig())
         {
             SetPreparedList();
 
@@ -115,7 +115,7 @@ public class SymbolGiver : MonoBehaviour
         if (_symbolGiverVisual.IsEmpty() == false)
             return;
 
-        if (UnityEngine.Random.Range(0f, 100f) > 85f)
+        if (UnityEngine.Random.Range(0f, 100f) > 90f)
             _currentGridContent = _symbolGiverHelper.GetGridContent();
         else
         {

@@ -9,8 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a74af199c136f3a48829f4c2161dad79, type: 3}
-  m_Name: Complete Equation
+  m_Script: {fileID: 11500000, guid: 86160ed3d1114c54a8e66700a29b360a, type: 3}
+  m_Name: Random Remove Chip Amount
   m_EditorClassIdentifier: 
-  _moveAmount: 15
-  _amountToWin: 3
+  _moveAmount: 0

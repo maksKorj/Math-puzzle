@@ -6751,8 +6751,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _levelConfig: {fileID: 11400000, guid: 82878c97284a88646a7e7b687040494a, type: 2}
   _victoryConditions:
-  - {fileID: 11400000, guid: 0a91d39510c16e4488bbb34fe8c3eef7, type: 2}
-  - {fileID: 11400000, guid: 6fc2bd286b1ecf14b8643fb0805ddff2, type: 2}
+  - {fileID: 11400000, guid: 0a01eb15f434ac94c847bfb453d117d8, type: 2}
+  - {fileID: 11400000, guid: 8e13c5526de9a7646bcc4d5ca43279b7, type: 2}
 --- !u!1 &1661692684
 GameObject:
   m_ObjectHideFlags: 0

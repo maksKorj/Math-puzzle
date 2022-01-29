@@ -130,7 +130,7 @@ namespace LevelBuilder
 
         private void SetStartGridValue()
         {
-            if(_levelPropertyHandler.IsContainedLevel())
+            if(_levelPropertyHandler.HasSymbolConfig())
             {
                 foreach (var gridContent in _levelPropertyHandler.StartPositionConfig().TakenGridElements)
                 {
