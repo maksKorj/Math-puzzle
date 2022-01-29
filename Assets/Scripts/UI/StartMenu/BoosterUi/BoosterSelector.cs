@@ -18,7 +18,9 @@ namespace StartMenu.BoosterUi
         public void Open(string level)
         {
             _popupAnimation.Open();
-            _levelName.text = level; 
+            _levelName.text = level;
+
+            BoosterSaverManager.Instance.SetBoosterSlots();
 
             if (BoosterSaverManager.Instance.SlotItems.Count > 0)
             {

@@ -41,7 +41,6 @@ public class BoosterSaverManager : MonoBehaviour
 
     private void LoadSave()
     {
-        BoosterSaver.DeleteBoosters();
         var savingBoosterHandler = BoosterSaver.LoadBoosters();
 
         if (savingBoosterHandler == null)
@@ -54,7 +53,7 @@ public class BoosterSaverManager : MonoBehaviour
     private void SetStartValue()
     {
         for(int i = 0; i < _boosters.Length; i++)
-            _boosterItems.Add(new BoosterItem(_boosters[i], 0));
+            _boosterItems.Add(new BoosterItem(_boosters[i], 3));
 
         for (int i = 0; i < _boosterSlots.Length; i++)
             _boosterSlots[i] = new BoosterSlot();
@@ -106,7 +105,7 @@ public class BoosterSaverManager : MonoBehaviour
         SetAvailableBoosterItems(PlayerSaver.LoadPlayerLevel());
     }
 
-    private void SetBoosterSlots()
+    public void SetBoosterSlots()
     {
         SlotItems.Clear();
 
