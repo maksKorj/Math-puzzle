@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c186dddc710cc364cba12db6bf2e3598, type: 3}
   m_Name: Swipe
   m_EditorClassIdentifier: 
-  _boosterImage: {fileID: 21300000, guid: af068e01415adc948ae926607cc1519b, type: 3}
-  _name: Exchange chips
-  _coinPrice: 300
-  _gemPriceForOne: 0.6
+  _boosterImage: {fileID: 21300000, guid: 16fd5825a25993740a6464a2eaad97e7, type: 3}
+  _name: Swap
+  _coinPrice: 225
+  _gemPriceForOne: 0.4
   _isImmediatelyApply: 0
   _availableFromLevel: 0

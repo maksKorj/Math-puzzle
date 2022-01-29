@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Change Symbol Giver
   m_EditorClassIdentifier: 
   _boosterImage: {fileID: 21300000, guid: 59dc8e9d2c2041548b26fdbceb1a94cd, type: 3}
-  _name: Change symbol
-  _coinPrice: 150
-  _gemPriceForOne: 0.4
+  _name: Changer
+  _coinPrice: 275
+  _gemPriceForOne: 0.6
   _isImmediatelyApply: 0
   _availableFromLevel: 0

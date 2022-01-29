@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c3bc5e7b00f25a4d8a4a69a44504fd6, type: 3}
   m_Name: Change Position
   m_EditorClassIdentifier: 
-  _boosterImage: {fileID: 21300000, guid: 8e601a51f9c66d5488030f298908526c, type: 3}
-  _name: Change position
-  _coinPrice: 150
-  _gemPriceForOne: 0.2
+  _boosterImage: {fileID: 21300000, guid: 58afa9ff61da6ba4d815f6f5092909a6, type: 3}
+  _name: Bird
+  _coinPrice: 175
+  _gemPriceForOne: 0.4
   _isImmediatelyApply: 0
   _availableFromLevel: 0

@@ -904,12 +904,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _boosters:
-  - {fileID: 11400000, guid: d2a846b4010aaad429e17c9cac42c8eb, type: 2}
-  - {fileID: 11400000, guid: 0e420ee91c1148e448673f3b517097a9, type: 2}
-  - {fileID: 11400000, guid: 5767eb29afd52eb40b5caec141ac72f3, type: 2}
   - {fileID: 11400000, guid: 40df7d874b8bfbd44b5d4300f24ee625, type: 2}
   - {fileID: 11400000, guid: 5a7e1f37d9870e54aa77700434827178, type: 2}
+  - {fileID: 11400000, guid: 0e420ee91c1148e448673f3b517097a9, type: 2}
   - {fileID: 11400000, guid: 6fc9e27b05e59294ba3243e94a5a2529, type: 2}
+  - {fileID: 11400000, guid: 5767eb29afd52eb40b5caec141ac72f3, type: 2}
+  - {fileID: 11400000, guid: d2a846b4010aaad429e17c9cac42c8eb, type: 2}
 --- !u!114 &1796918446 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7502454432492598620, guid: a08ff58791f4ad54d973482267b04a6e, type: 3}

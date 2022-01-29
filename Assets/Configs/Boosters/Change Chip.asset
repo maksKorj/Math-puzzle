@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Change Chip
   m_EditorClassIdentifier: 
   _boosterImage: {fileID: 21300000, guid: 1332cd531d0aa468fa567d9ba355d074, type: 3}
-  _name: Change chip
-  _coinPrice: 100
-  _gemPriceForOne: 0.2
+  _name: Arrow
+  _coinPrice: 325
+  _gemPriceForOne: 0.6
   _isImmediatelyApply: 0
   _availableFromLevel: 0

@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _boosterImage: {fileID: 21300000, guid: fdfd8e589c9a34816ba74d0822c211b0, type: 3}
   _name: Hammer
-  _coinPrice: 200
-  _gemPriceForOne: 0.4
+  _coinPrice: 100
+  _gemPriceForOne: 0.2
   _isImmediatelyApply: 0
   _availableFromLevel: 0

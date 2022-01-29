@@ -8052,8 +8052,7 @@ MonoBehaviour:
   _gridElement: {fileID: 3910632566187712009, guid: c40a31ea7534d4d40bb45d48e4e7284f, type: 3}
   _gridButton: {fileID: 716724792186199790, guid: 1fd218f0e45667646849a35ea69ca9f1, type: 3}
   _unitMover: {fileID: 3910632564523649500}
-  _blackBackground: {fileID: 21300000, guid: ac3787686381444458ba9efc207605a6, type: 3}
-  _whiteBackground: {fileID: 21300000, guid: 2f04f43f4641d504694c53ebcef88cca, type: 3}
+  _tile: {fileID: 21300000, guid: ac3787686381444458ba9efc207605a6, type: 3}
 --- !u!114 &1874345067
 MonoBehaviour:
   m_ObjectHideFlags: 0

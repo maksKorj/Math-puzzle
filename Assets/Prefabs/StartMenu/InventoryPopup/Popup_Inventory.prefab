@@ -197,8 +197,8 @@ RectTransform:
   - {fileID: 7705643460754584778}
   - {fileID: 7705643460465615835}
   - {fileID: 7705643461818541788}
-  - {fileID: 7705643460410673937}
   - {fileID: 7705643460507734033}
+  - {fileID: 7705643460410673937}
   m_Father: {fileID: 259242766893850888}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -262,8 +262,8 @@ MonoBehaviour:
   - {fileID: 7705643460754584789}
   - {fileID: 7705643460465615812}
   - {fileID: 7705643461818541763}
-  - {fileID: 7705643460410673934}
   - {fileID: 7705643460507734030}
+  - {fileID: 7705643460410673934}
   _popUpAnimation: {fileID: 1823657117562226645}
 --- !u!1 &1823657115920926993
 GameObject:
@@ -1115,7 +1115,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8331975534474187848, guid: b4ca2c7dde039324a89ca27e6b596739, type: 3}
       propertyPath: m_RootOrder
-      value: 5
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 8331975534474187848, guid: b4ca2c7dde039324a89ca27e6b596739, type: 3}
       propertyPath: m_AnchorMax.x
@@ -1191,7 +1191,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8331975534474187849, guid: b4ca2c7dde039324a89ca27e6b596739, type: 3}
       propertyPath: m_Name
-      value: Inventory_Item (6)
+      value: Inventory_Item (5)
       objectReference: {fileID: 0}
     - target: {fileID: 8331975534474187863, guid: b4ca2c7dde039324a89ca27e6b596739, type: 3}
       propertyPath: _inventoryShopPopUp
@@ -1256,7 +1256,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8331975534474187848, guid: b4ca2c7dde039324a89ca27e6b596739, type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 8331975534474187848, guid: b4ca2c7dde039324a89ca27e6b596739, type: 3}
       propertyPath: m_AnchorMax.x
@@ -1332,7 +1332,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8331975534474187849, guid: b4ca2c7dde039324a89ca27e6b596739, type: 3}
       propertyPath: m_Name
-      value: Inventory_Item (5)
+      value: Inventory_Item (6)
       objectReference: {fileID: 0}
     - target: {fileID: 8331975534474187863, guid: b4ca2c7dde039324a89ca27e6b596739, type: 3}
       propertyPath: _inventoryShopPopUp

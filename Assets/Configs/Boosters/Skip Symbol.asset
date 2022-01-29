@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _boosterImage: {fileID: 21300000, guid: bf4bee8621fe2f9429739c59623a3c11, type: 3}
   _name: Skip
-  _coinPrice: 250
+  _coinPrice: 125
   _gemPriceForOne: 0.2
   _isImmediatelyApply: 1
   _availableFromLevel: 0
