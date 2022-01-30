@@ -24,7 +24,9 @@ namespace StartMenu
 
         public void StartGame()
         {
-            if(_lives.HasLives)
+            BoosterSaverManager.Instance.SetAvailableBoosterItems(PlayerSaver.LoadPlayerLevel());
+
+            if (_lives.HasLives)
             {
                 if (BoosterSaverManager.Instance.AvailableBoosterItems.Count > 0)
                     _boosterSelector.Open(_levelName);

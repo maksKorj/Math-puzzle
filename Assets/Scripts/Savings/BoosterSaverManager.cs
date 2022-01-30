@@ -105,7 +105,7 @@ public class BoosterSaverManager : MonoBehaviour
         SetAvailableBoosterItems(PlayerSaver.LoadPlayerLevel());
     }
 
-    public void SetBoosterSlots()
+    private void SetBoosterSlots()
     {
         SlotItems.Clear();
 
@@ -120,7 +120,7 @@ public class BoosterSaverManager : MonoBehaviour
     #endregion
 
     #region BoosterItems
-    private void SetAvailableBoosterItems(int level)
+    public void SetAvailableBoosterItems(int level)
     {
         AvailableBoosterItems.Clear();
 

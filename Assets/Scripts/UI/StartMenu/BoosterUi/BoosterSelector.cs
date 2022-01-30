@@ -20,8 +20,6 @@ namespace StartMenu.BoosterUi
             _popupAnimation.Open();
             _levelName.text = level;
 
-            BoosterSaverManager.Instance.SetBoosterSlots();
-
             if (BoosterSaverManager.Instance.SlotItems.Count > 0)
             {
                 for (int i = 0; i < BoosterSaverManager.Instance.SlotItems.Count; i++)
