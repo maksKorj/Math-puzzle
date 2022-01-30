@@ -15,6 +15,6 @@ MonoBehaviour:
   _gridContents:
   - {fileID: 11400000, guid: 6c714b81bf17df147ba478e7cb061069, type: 2}
   - {fileID: 11400000, guid: b42e3e8c1f00b2c47adbdfbc595926ba, type: 2}
-  - {fileID: 11400000, guid: 6c714b81bf17df147ba478e7cb061069, type: 2}
   - {fileID: 11400000, guid: 8d11f8a7cfb1d5d4289aff371843f281, type: 2}
+  - {fileID: 11400000, guid: 6c714b81bf17df147ba478e7cb061069, type: 2}
   _isRandomOutput: 0

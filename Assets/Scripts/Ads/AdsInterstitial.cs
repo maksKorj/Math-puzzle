@@ -33,14 +33,12 @@ public class AdsInterstitial : MonoBehaviour
     {
         if(StateSaver.IsAdBlockTurnOn())
         {
-            Debug.Log("AdBlock is turn on");
             OnAdsClosed?.Invoke();
             return;
         }
 
         _count++;
 
-        Debug.Log("Count: " + _count + " Total time: " + (DateTime.Now - _startDate));
         if(_count > 1 || DateTime.Now - _startDate >= _fiveMinutes)
         {
             _count = 0;

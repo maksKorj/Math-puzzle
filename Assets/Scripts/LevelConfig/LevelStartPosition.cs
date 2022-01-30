@@ -4,6 +4,7 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "LevelConfigs/Start Positions/Level Start Positions")]
 public class LevelStartPosition : ScriptableObject
 {
+    //ToDo
     [SerializeField] private List<GridElementContent> _gridElementContents;
 
     public IEnumerable<GridElementContent> TakenGridElements => _gridElementContents;

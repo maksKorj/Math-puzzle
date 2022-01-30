@@ -7,7 +7,7 @@ public class RandomCompleteEquation : RandomVictoryCondition
     {
         _amountToWin = Random.Range(4, GetMax(level));
 
-        int moves = Mathf.RoundToInt(_amountToWin * 3.5f);
+        int moves = Mathf.RoundToInt(_amountToWin * 4f);
         _moveAmount = Random.Range(moves, moves + 15);
     }
 

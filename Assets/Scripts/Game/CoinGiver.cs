@@ -8,7 +8,7 @@ public class CoinGiver : MonoBehaviour
 
     public void UpdateAmount()
     {
-        int givenAmount = PlayerSaver.LoadPlayerLevel() * 10 + 40 + Random.Range(0, 91);
+        int givenAmount = PlayerSaver.LoadPlayerLevel() * 80 + 40 + Random.Range(0, 91);
         _amountDisplay.text = $"+ {givenAmount}";
         _coinWallet.Add(givenAmount);
     }

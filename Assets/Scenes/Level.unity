@@ -3500,7 +3500,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Choose chip to switch.
+  m_text: Choose chip or cell to change.
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 5094b715585444e90b7306721788dae5, type: 2}
   m_sharedMaterial: {fileID: 2393364598115949451, guid: 5094b715585444e90b7306721788dae5, type: 2}
@@ -16271,6 +16271,22 @@ PrefabInstance:
       propertyPath: _diamondWallet
       value: 
       objectReference: {fileID: 2022946782}
+    - target: {fileID: 6640314702943281716, guid: 7bad869a58cb82b4f8623a16e55972a9, type: 3}
+      propertyPath: m_Color.a
+      value: 0.4392157
+      objectReference: {fileID: 0}
+    - target: {fileID: 6640314702943281716, guid: 7bad869a58cb82b4f8623a16e55972a9, type: 3}
+      propertyPath: m_Color.b
+      value: 0.14117648
+      objectReference: {fileID: 0}
+    - target: {fileID: 6640314702943281716, guid: 7bad869a58cb82b4f8623a16e55972a9, type: 3}
+      propertyPath: m_Color.g
+      value: 0.105882354
+      objectReference: {fileID: 0}
+    - target: {fileID: 6640314702943281716, guid: 7bad869a58cb82b4f8623a16e55972a9, type: 3}
+      propertyPath: m_Color.r
+      value: 0.12156863
+      objectReference: {fileID: 0}
     - target: {fileID: 6640314703573404224, guid: 7bad869a58cb82b4f8623a16e55972a9, type: 3}
       propertyPath: m_Name
       value: Popup_Present
