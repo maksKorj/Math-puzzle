@@ -15264,6 +15264,38 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 397695633}
     m_Modifications:
+    - target: {fileID: 2662442102022049861, guid: b22f8fa749a237845982f6eb8a2c2237, type: 3}
+      propertyPath: m_fontSize
+      value: 85
+      objectReference: {fileID: 0}
+    - target: {fileID: 2662442102022049861, guid: b22f8fa749a237845982f6eb8a2c2237, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 85
+      objectReference: {fileID: 0}
+    - target: {fileID: 2662442102022049882, guid: b22f8fa749a237845982f6eb8a2c2237, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: -70
+      objectReference: {fileID: 0}
+    - target: {fileID: 2662442102022049882, guid: b22f8fa749a237845982f6eb8a2c2237, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2662442102665862824, guid: b22f8fa749a237845982f6eb8a2c2237, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: -70
+      objectReference: {fileID: 0}
+    - target: {fileID: 2662442102665862824, guid: b22f8fa749a237845982f6eb8a2c2237, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2662442102665862827, guid: b22f8fa749a237845982f6eb8a2c2237, type: 3}
+      propertyPath: m_fontSize
+      value: 85
+      objectReference: {fileID: 0}
+    - target: {fileID: 2662442102665862827, guid: b22f8fa749a237845982f6eb8a2c2237, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 85
+      objectReference: {fileID: 0}
     - target: {fileID: 4266291024135302354, guid: b22f8fa749a237845982f6eb8a2c2237, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
