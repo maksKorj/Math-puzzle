@@ -14,10 +14,12 @@ public class MoveShopPopUp : MonoBehaviour
     public void OpenShop()
     {
         _popUpAnimationAditional.Open();
+        BackButton.Instance.AddBackButtonAction(_popUpAnimationAditional.Close);
     }
 
     public void CloseShop()
     {
         _popUpAnimationAditional.Close();
+        BackButton.Instance.RemoveLastAction();
     }
 }

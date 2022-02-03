@@ -1248,17 +1248,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 290208179}
   m_CullTransparentMesh: 1
---- !u!114 &297023190 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 4210661917548568888, guid: 8b060a2e5231dfc499f916fc27f96c8b, type: 3}
-  m_PrefabInstance: {fileID: 4210661917285111790}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5337c85a0b9907046a80a3c514f1da5d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &327458407
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -15468,9 +15457,17 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1549981583}
     - target: {fileID: 4210661916410070100, guid: 8b060a2e5231dfc499f916fc27f96c8b, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 4210661917285111794}
+    - target: {fileID: 4210661916410070100, guid: 8b060a2e5231dfc499f916fc27f96c8b, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
       objectReference: {fileID: 1549981583}
+    - target: {fileID: 4210661916410070100, guid: 8b060a2e5231dfc499f916fc27f96c8b, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: LevelSettingsAdditionalPopup, Assembly-CSharp
+      objectReference: {fileID: 0}
     - target: {fileID: 4210661916682535098, guid: 8b060a2e5231dfc499f916fc27f96c8b, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -15568,11 +15565,53 @@ PrefabInstance:
       value: Popup_Pause
       objectReference: {fileID: 0}
     - target: {fileID: 6995088421769721021, guid: 8b060a2e5231dfc499f916fc27f96c8b, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 4210661917285111793}
+    - target: {fileID: 6995088421769721021, guid: 8b060a2e5231dfc499f916fc27f96c8b, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
       objectReference: {fileID: 1549981583}
+    - target: {fileID: 6995088421769721021, guid: 8b060a2e5231dfc499f916fc27f96c8b, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: LevelSettingsAdditionalPopup, Assembly-CSharp
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8b060a2e5231dfc499f916fc27f96c8b, type: 3}
+--- !u!1 &4210661917285111791 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6364152707731779964, guid: 8b060a2e5231dfc499f916fc27f96c8b, type: 3}
+  m_PrefabInstance: {fileID: 4210661917285111790}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &4210661917285111792 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4210661917548568890, guid: 8b060a2e5231dfc499f916fc27f96c8b, type: 3}
+  m_PrefabInstance: {fileID: 4210661917285111790}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &4210661917285111793
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4210661917285111791}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ea10028292879a74db082be93027d59e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &4210661917285111794
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4210661917285111792}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ea10028292879a74db082be93027d59e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &4327458347635956899
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -16146,11 +16185,15 @@ PrefabInstance:
     - target: {fileID: 5317421008591361604, guid: d7fb3785704b00349ada559da5ca6062, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 297023190}
+      objectReference: {fileID: 4210661917285111794}
     - target: {fileID: 5317421008591361604, guid: d7fb3785704b00349ada559da5ca6062, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
       objectReference: {fileID: 1549981583}
+    - target: {fileID: 5317421008591361604, guid: d7fb3785704b00349ada559da5ca6062, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: LevelSettingsAdditionalPopup, Assembly-CSharp
+      objectReference: {fileID: 0}
     - target: {fileID: 5317421008996400912, guid: d7fb3785704b00349ada559da5ca6062, type: 3}
       propertyPath: _lives
       value: 
@@ -16247,6 +16290,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Popup_Settings
       objectReference: {fileID: 0}
+    - target: {fileID: 5317421008996400915, guid: d7fb3785704b00349ada559da5ca6062, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5317421009098064347, guid: d7fb3785704b00349ada559da5ca6062, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
@@ -16262,11 +16309,15 @@ PrefabInstance:
     - target: {fileID: 5317421010592246829, guid: d7fb3785704b00349ada559da5ca6062, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 7078890739198469779}
+      objectReference: {fileID: 4210661917285111793}
     - target: {fileID: 5317421010592246829, guid: d7fb3785704b00349ada559da5ca6062, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
       objectReference: {fileID: 1549981583}
+    - target: {fileID: 5317421010592246829, guid: d7fb3785704b00349ada559da5ca6062, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: LevelSettingsAdditionalPopup, Assembly-CSharp
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d7fb3785704b00349ada559da5ca6062, type: 3}
 --- !u!224 &6221509180598223507
@@ -16435,17 +16486,6 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 6364152708552077170, guid: 8b060a2e5231dfc499f916fc27f96c8b, type: 3}
   m_PrefabInstance: {fileID: 4210661917285111790}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &7078890739198469779 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 6364152707731779965, guid: 8b060a2e5231dfc499f916fc27f96c8b, type: 3}
-  m_PrefabInstance: {fileID: 4210661917285111790}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5337c85a0b9907046a80a3c514f1da5d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &7498611482660564648
 PrefabInstance:
   m_ObjectHideFlags: 0

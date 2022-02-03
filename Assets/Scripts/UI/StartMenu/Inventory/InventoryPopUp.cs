@@ -13,9 +13,14 @@ namespace StartMenu.Inventory
                 _inventoryItems[i].SetBooster(BoosterSaverManager.Instance.BoosterItems[i]);
 
             _popUpAnimation.Open();
+            BackButton.Instance.AddBackButtonAction(_popUpAnimation.Close);
         }
 
-        public void Close() => _popUpAnimation.Close();
+        public void Close()
+        {
+            _popUpAnimation.Close();
+            BackButton.Instance.RemoveLastAction();
+        }
     }        
 }
 

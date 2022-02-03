@@ -19,6 +19,8 @@ namespace StartMenu.BoosterUi
 
             for (int i = 0; i < BoosterSaverManager.Instance.AvailableBoosterItems.Count; i++)
                 _boosterSelectorItems[i].SetItem(BoosterSaverManager.Instance.AvailableBoosterItems[i]);
+
+            BackButton.Instance.AddBackButtonAction(_popUpAnimation.Close);
         }
 
         public void ChangeBooster(BoosterItem boosterItem)
@@ -29,7 +31,11 @@ namespace StartMenu.BoosterUi
             Close();
         }
 
-        public void Close() => _popUpAnimation.Close();
+        public void Close()
+        {
+            _popUpAnimation.Close();
+            BackButton.Instance.RemoveLastAction();
+        }
     }
 }
 

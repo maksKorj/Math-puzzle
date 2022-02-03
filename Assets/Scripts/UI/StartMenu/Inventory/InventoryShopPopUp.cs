@@ -29,9 +29,14 @@ namespace StartMenu.Inventory
             _freeBoosterShopButton.UpdeteUi(boosterButtonElement);
 
             _boosterNameDisplay.text = boosterButtonElement.BoosterItem.Booster.Name;
+            BackButton.Instance.AddBackButtonAction(CloseShop);
         }
 
-        public void Close() => CloseShop();
+        public void Close()
+        {
+            CloseShop();
+            BackButton.Instance.RemoveLastAction();
+        }
 
         protected virtual void OpenShop()
         {

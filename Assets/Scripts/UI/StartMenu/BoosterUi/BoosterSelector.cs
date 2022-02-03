@@ -30,11 +30,14 @@ namespace StartMenu.BoosterUi
                         _boosterButtonSlots[i].ResetBooster();
                 }
             }
+
+            BackButton.Instance.AddBackButtonAction(_popupAnimation.Close);
         }
 
         public void Close()
         {
             _popupAnimation.Close();
+            BackButton.Instance.RemoveLastAction();
         }
     }
 }

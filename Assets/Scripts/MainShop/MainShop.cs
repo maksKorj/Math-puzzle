@@ -27,12 +27,14 @@ public class MainShop : MonoBehaviour
     private void OpenTab(int index)
     {
         _popUpAnimation.Open();
-
         _mainShopTabs[index].Select();
+
+        BackButton.Instance.AddBackButtonAction(_popUpAnimation.Close);
     }
 
     public void CloseShop()
     {
         _popUpAnimation.Close();
+        BackButton.Instance.RemoveLastAction();
     }
 }
